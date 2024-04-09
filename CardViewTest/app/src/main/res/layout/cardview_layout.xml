@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="#0288D1"
+    app:cardCornerRadius="20dp">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Logging"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="27sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="#30528E"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="loadSymptoms"
+        android:text="Symptoms"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FEC4C4"
+        android:textColorLink="#FEC4C4"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="130dp"
+        android:backgroundTint="#30528E"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="loadJournaling"
+        android:text="Journaling"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FEC4C4"
+        android:textColorLink="#FEC4C4"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="185dp"
+        android:backgroundTint="#30528E"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="loadDailyReminders"
+        android:text="Daily Reminders"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FEC4C4"
+        android:textColorLink="#FEC4C4"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="#30528E"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="loadMedTrack"
+        android:text="Medication Tracker"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FEC4C4"
+        android:textColorLink="#FEC4C4"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="295dp"
+        android:backgroundTint="#30528E"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="loadMSFAQ"
+        android:text="MS FAQs"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FEC4C4"
+        android:textColorLink="#FEC4C4"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+</androidx.cardview.widget.CardView>
