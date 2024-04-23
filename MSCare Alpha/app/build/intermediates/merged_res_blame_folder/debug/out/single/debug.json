@@ -1,0 +1,138 @@
+[
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/xml_backup_rules.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/font_dm_sans.ttf.flat",
+        "source": "com.example.mscarealpha.app-main-47:/font/dm_sans.ttf"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/layout_fragment_faqs.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/layout/fragment_faqs.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/layout_fragment_medtrack.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/layout/fragment_medtrack.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/layout_fragment_reminders.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/layout/fragment_reminders.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/layout_fragment_symptoms_and_journaling.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/layout/fragment_symptoms_and_journaling.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/navigation_mobile_navigation.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/drawable/ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/drawable_ic_home_black_24dp.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/drawable/ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/layout_fragment_home.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/layout_activity_main.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/drawable_vecteezy_nature_beautiful_town_in_night_13115021.xml.flat",
+        "source": "com.example.mscarealpha.app-main-47:/drawable/vecteezy_nature_beautiful_town_in_night_13115021.xml"
+    },
+    {
+        "merged": "com.example.mscarealpha.app-merged_res-45:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.mscarealpha.app-main-47:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    }
+]

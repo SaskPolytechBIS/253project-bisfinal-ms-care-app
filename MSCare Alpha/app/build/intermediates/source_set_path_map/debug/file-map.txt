@@ -1,0 +1,48 @@
+com.example.mscarealpha.app-appcompat-resources-1.6.1-0 /Users/bimal/.gradle/caches/transforms-3/02a5982ad45dce0d66b2b492d6deb158/transformed/appcompat-resources-1.6.1/res
+com.example.mscarealpha.app-constraintlayout-2.1.4-1 /Users/bimal/.gradle/caches/transforms-3/08f55b195dcd0c7c189d9e8288f31b0a/transformed/constraintlayout-2.1.4/res
+com.example.mscarealpha.app-lifecycle-livedata-ktx-2.7.0-2 /Users/bimal/.gradle/caches/transforms-3/0cd78e8964ed2a4161a578ef1d69355e/transformed/lifecycle-livedata-ktx-2.7.0/res
+com.example.mscarealpha.app-activity-ktx-1.8.0-3 /Users/bimal/.gradle/caches/transforms-3/0e16defbb939881b5f9948833bfb01d3/transformed/activity-ktx-1.8.0/res
+com.example.mscarealpha.app-lifecycle-viewmodel-2.7.0-4 /Users/bimal/.gradle/caches/transforms-3/0f54c4cef354ff516c7f91d76df40d48/transformed/lifecycle-viewmodel-2.7.0/res
+com.example.mscarealpha.app-emoji2-views-helper-1.2.0-5 /Users/bimal/.gradle/caches/transforms-3/0fe54ec19f812a8b627350cd3bb86c38/transformed/emoji2-views-helper-1.2.0/res
+com.example.mscarealpha.app-media-1.0.0-6 /Users/bimal/.gradle/caches/transforms-3/16b553fc5d85aedbfcfe71527c068a7f/transformed/media-1.0.0/res
+com.example.mscarealpha.app-lifecycle-runtime-2.7.0-7 /Users/bimal/.gradle/caches/transforms-3/1e19e08ba7eff560565879ee4c895f57/transformed/lifecycle-runtime-2.7.0/res
+com.example.mscarealpha.app-navigation-fragment-2.7.7-8 /Users/bimal/.gradle/caches/transforms-3/20b58a477113a2c3d475d63a3e0f8382/transformed/navigation-fragment-2.7.7/res
+com.example.mscarealpha.app-emoji2-1.2.0-9 /Users/bimal/.gradle/caches/transforms-3/2359ec2300da750368c8a650184da00c/transformed/emoji2-1.2.0/res
+com.example.mscarealpha.app-core-1.9.0-10 /Users/bimal/.gradle/caches/transforms-3/25d17c91d5902985514078e82b64555a/transformed/core-1.9.0/res
+com.example.mscarealpha.app-viewpager2-1.0.0-11 /Users/bimal/.gradle/caches/transforms-3/2868c6dedcc78dd2b55cae718a65f19e/transformed/viewpager2-1.0.0/res
+com.example.mscarealpha.app-drawerlayout-1.1.1-12 /Users/bimal/.gradle/caches/transforms-3/2af3cb339e7ba881e9ba66649606c06e/transformed/drawerlayout-1.1.1/res
+com.example.mscarealpha.app-recyclerview-1.1.0-13 /Users/bimal/.gradle/caches/transforms-3/3546725936c0f39241b0f11dbddae49c/transformed/recyclerview-1.1.0/res
+com.example.mscarealpha.app-navigation-common-2.7.7-14 /Users/bimal/.gradle/caches/transforms-3/3578ef020bfaa9ddc7e74c25341dd88c/transformed/navigation-common-2.7.7/res
+com.example.mscarealpha.app-startup-runtime-1.1.1-15 /Users/bimal/.gradle/caches/transforms-3/35c44a6062800d6208cce566c14e2f2e/transformed/startup-runtime-1.1.1/res
+com.example.mscarealpha.app-savedstate-ktx-1.2.1-16 /Users/bimal/.gradle/caches/transforms-3/423ba7bd100b515d8af60a1f98f88491/transformed/savedstate-ktx-1.2.1/res
+com.example.mscarealpha.app-lifecycle-runtime-ktx-2.7.0-17 /Users/bimal/.gradle/caches/transforms-3/432e3e529efbf0be0a8634cf54956d29/transformed/lifecycle-runtime-ktx-2.7.0/res
+com.example.mscarealpha.app-navigation-runtime-2.7.7-18 /Users/bimal/.gradle/caches/transforms-3/46529cdd474d46162a1dbe2610cec95f/transformed/navigation-runtime-2.7.7/res
+com.example.mscarealpha.app-core-runtime-2.2.0-19 /Users/bimal/.gradle/caches/transforms-3/5d56c3fe997e8f211d91cb0fb8f3183c/transformed/core-runtime-2.2.0/res
+com.example.mscarealpha.app-cardview-1.0.0-20 /Users/bimal/.gradle/caches/transforms-3/620f982873d66a3a41a47a9d4dd46bfa/transformed/cardview-1.0.0/res
+com.example.mscarealpha.app-lifecycle-viewmodel-ktx-2.7.0-21 /Users/bimal/.gradle/caches/transforms-3/70e320fc64000a4c80ac6443c48cf7ec/transformed/lifecycle-viewmodel-ktx-2.7.0/res
+com.example.mscarealpha.app-transition-1.4.1-22 /Users/bimal/.gradle/caches/transforms-3/7372fe2c384f24e178c9206f5ef50e65/transformed/transition-1.4.1/res
+com.example.mscarealpha.app-slidingpanelayout-1.2.0-23 /Users/bimal/.gradle/caches/transforms-3/761688853e45f46ab3d4e283225f3049/transformed/slidingpanelayout-1.2.0/res
+com.example.mscarealpha.app-window-1.0.0-24 /Users/bimal/.gradle/caches/transforms-3/78059cf745fed937e8777089d81283ba/transformed/window-1.0.0/res
+com.example.mscarealpha.app-annotation-experimental-1.3.0-25 /Users/bimal/.gradle/caches/transforms-3/8926c8614022bac951cf6bb966ea69fc/transformed/annotation-experimental-1.3.0/res
+com.example.mscarealpha.app-lifecycle-livedata-core-ktx-2.7.0-26 /Users/bimal/.gradle/caches/transforms-3/8f1b595f644299226e202385b359252b/transformed/lifecycle-livedata-core-ktx-2.7.0/res
+com.example.mscarealpha.app-fragment-ktx-1.6.2-27 /Users/bimal/.gradle/caches/transforms-3/94239f47577223f0bdf361753e9fadfc/transformed/fragment-ktx-1.6.2/res
+com.example.mscarealpha.app-lifecycle-viewmodel-savedstate-2.7.0-28 /Users/bimal/.gradle/caches/transforms-3/9e65f4563fb6d0c3b73d8f05388afbfc/transformed/lifecycle-viewmodel-savedstate-2.7.0/res
+com.example.mscarealpha.app-navigation-ui-2.7.7-29 /Users/bimal/.gradle/caches/transforms-3/a4703f69aa60e29d128a14ffec0dc25d/transformed/navigation-ui-2.7.7/res
+com.example.mscarealpha.app-material-1.11.0-30 /Users/bimal/.gradle/caches/transforms-3/a856886f94406ac05e27bcd0454b5365/transformed/material-1.11.0/res
+com.example.mscarealpha.app-fragment-1.6.2-31 /Users/bimal/.gradle/caches/transforms-3/a9b8cb08d740cfa9a37ff2b2f510b044/transformed/fragment-1.6.2/res
+com.example.mscarealpha.app-profileinstaller-1.3.0-32 /Users/bimal/.gradle/caches/transforms-3/acd09e5d0cd94e2c3bbe30c0da31ed63/transformed/profileinstaller-1.3.0/res
+com.example.mscarealpha.app-appcompat-1.6.1-33 /Users/bimal/.gradle/caches/transforms-3/b5364afbc06c95c72352e38d6ea75d02/transformed/appcompat-1.6.1/res
+com.example.mscarealpha.app-savedstate-1.2.1-34 /Users/bimal/.gradle/caches/transforms-3/b791a40a35adcfb1e3c6118d5ce3a6bb/transformed/savedstate-1.2.1/res
+com.example.mscarealpha.app-coordinatorlayout-1.1.0-35 /Users/bimal/.gradle/caches/transforms-3/ba4e03b7195bc841e25616ba303111be/transformed/coordinatorlayout-1.1.0/res
+com.example.mscarealpha.app-activity-1.8.0-36 /Users/bimal/.gradle/caches/transforms-3/c7c9b1d5c5480490c683a682d04f4cd3/transformed/activity-1.8.0/res
+com.example.mscarealpha.app-lifecycle-process-2.7.0-37 /Users/bimal/.gradle/caches/transforms-3/d48a2ddfb72dd752e4c2abdf6345e016/transformed/lifecycle-process-2.7.0/res
+com.example.mscarealpha.app-lifecycle-livedata-core-2.7.0-38 /Users/bimal/.gradle/caches/transforms-3/e1727450df5cc1ce22f65ec0bf10eecc/transformed/lifecycle-livedata-core-2.7.0/res
+com.example.mscarealpha.app-core-ktx-1.9.0-39 /Users/bimal/.gradle/caches/transforms-3/e7e44441591e30950377df3937c7b52d/transformed/core-ktx-1.9.0/res
+com.example.mscarealpha.app-lifecycle-livedata-2.7.0-40 /Users/bimal/.gradle/caches/transforms-3/f5616938ca04a385f72602d73116177e/transformed/lifecycle-livedata-2.7.0/res
+com.example.mscarealpha.app-pngs-41 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/build/generated/res/pngs/debug
+com.example.mscarealpha.app-resValues-42 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/build/generated/res/resValues/debug
+com.example.mscarealpha.app-packageDebugResources-43 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.mscarealpha.app-packageDebugResources-44 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.mscarealpha.app-merged_res-45 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/build/intermediates/merged_res/debug
+com.example.mscarealpha.app-debug-46 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/src/debug/res
+com.example.mscarealpha.app-main-47 /Users/bimal/Documents/GitHub/253project-bisfinal-ms-care-app/MSCare Alpha/app/src/main/res
