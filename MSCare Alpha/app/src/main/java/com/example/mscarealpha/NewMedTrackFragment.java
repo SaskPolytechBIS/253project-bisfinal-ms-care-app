@@ -40,7 +40,7 @@ public class NewMedTrackFragment extends DialogFragment {
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnSave = dialogView.findViewById(R.id.btnSave);
 
-        builder.setView(dialogView).setMessage("Add a new note");
+        builder.setView(dialogView).setMessage("Add new medication");
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
 
@@ -66,14 +66,13 @@ public class NewMedTrackFragment extends DialogFragment {
 
                 // user's entries on the form
 
-                newMed.setMed(editMed.
-
-                        getText().toString());
+                newMed.setMed(editMed.getText().toString());
 
                 MedTrackFragment callingActivity = (MedTrackFragment) getParentFragment();
 
 
                 callingActivity.createNewMed(newMed);
+
 
 
                 dismiss();

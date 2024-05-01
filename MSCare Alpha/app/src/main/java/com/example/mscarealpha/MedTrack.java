@@ -5,12 +5,16 @@ import org.json.JSONObject;
 
 public class MedTrack {
     private String mMed;
+    private String mDos;
 
     private static final String JSON_TITLE = "title";
+
+
 
     public String getMed(){ return mMed; }
 
     public void setMed(String mMed){ this.mMed = mMed; }
+
 
     public MedTrack(JSONObject jo) throws JSONException{
         mMed = jo.getString(JSON_TITLE);
