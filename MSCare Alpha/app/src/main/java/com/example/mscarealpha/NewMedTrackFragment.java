@@ -34,6 +34,8 @@ public class NewMedTrackFragment extends DialogFragment {
         LayoutInflater inflater =getActivity().getLayoutInflater();
         View dialogView =inflater.inflate(R.layout.dialog_new_medtrack, null);
         final EditText editMed =dialogView.findViewById(R.id.editMed);
+        final EditText editDosage = dialogView.findViewById(R.id.editDosage);
+//        final EditText edit
 
 
 
@@ -68,11 +70,12 @@ public class NewMedTrackFragment extends DialogFragment {
 
                 newMed.setMed(editMed.getText().toString());
 
+                newMed.setDos(editDosage.getText().toString());
+
                 MedTrackFragment callingActivity = (MedTrackFragment) getParentFragment();
 
 
                 callingActivity.createNewMed(newMed);
-
 
 
                 dismiss();
