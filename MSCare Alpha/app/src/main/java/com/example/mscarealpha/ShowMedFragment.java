@@ -30,11 +30,15 @@ public class ShowMedFragment extends DialogFragment {
 
         TextView viewTimes = dialogView.findViewById(R.id.viewTimes);
 
+        TextView viewFood = dialogView.findViewById(R.id.viewFood);
+
         viewMed.setText(mMedTrack.getMed());
 
         viewDos.setText(mMedTrack.getDos());
 
         viewTimes.setText(mMedTrack.getTimes());
+
+        viewFood.setText(mMedTrack.getFoods());
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
 

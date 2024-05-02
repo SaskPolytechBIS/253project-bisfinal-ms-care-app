@@ -36,6 +36,7 @@ public class NewMedTrackFragment extends DialogFragment {
         final EditText editMed =dialogView.findViewById(R.id.editMed);
         final EditText editDosage = dialogView.findViewById(R.id.editDosage);
         final EditText editTimes = dialogView.findViewById(R.id.editTimes);
+        final EditText editFoods = dialogView.findViewById(R.id.editFoods);
 
 
 
@@ -73,6 +74,8 @@ public class NewMedTrackFragment extends DialogFragment {
                 newMed.setDos(editDosage.getText().toString());
 
                 newMed.setTimes(editTimes.getText().toString());
+
+                newMed.setFoods(editFoods.getText().toString());
 
                 MedTrackFragment callingActivity = (MedTrackFragment) getParentFragment();
 

@@ -8,11 +8,15 @@ public class MedTrack {
     private String mDos;
     private String mTimes;
 
+    private String mFoods;
+
     private static final String JSON_MED = "title";
 
     private static final String JSON_DOSAGE = "dosage";
 
     private static final String JSON_TIMES = "times";
+
+    private static final String JSON_FOODS = "foods";
 
     public String getMed(){ return mMed; }
 
@@ -26,10 +30,15 @@ public class MedTrack {
 
     public void setTimes(String mTimes){ this.mTimes = mTimes; }
 
+    public String getFoods(){ return mFoods; }
+
+    public void setFoods(String mFoods){ this.mFoods = mFoods; }
+
     public MedTrack(JSONObject jo) throws JSONException{
         mMed = jo.getString(JSON_MED);
         mDos = jo.getString(JSON_DOSAGE);
         mTimes = jo.getString(JSON_TIMES);
+        mFoods = jo.getString(JSON_FOODS);
     }
 
     public MedTrack(){
@@ -42,6 +51,7 @@ public class MedTrack {
         jo.put(JSON_MED, mMed);
         jo.put(JSON_DOSAGE, mDos);
         jo.put(JSON_TIMES, mTimes);
+        jo.put(JSON_FOODS, mFoods);
 
 
         return jo;
