@@ -35,7 +35,7 @@ public class NewMedTrackFragment extends DialogFragment {
         View dialogView =inflater.inflate(R.layout.dialog_new_medtrack, null);
         final EditText editMed =dialogView.findViewById(R.id.editMed);
         final EditText editDosage = dialogView.findViewById(R.id.editDosage);
-//        final EditText edit
+        final EditText editTimes = dialogView.findViewById(R.id.editTimes);
 
 
 
@@ -71,6 +71,8 @@ public class NewMedTrackFragment extends DialogFragment {
                 newMed.setMed(editMed.getText().toString());
 
                 newMed.setDos(editDosage.getText().toString());
+
+                newMed.setTimes(editTimes.getText().toString());
 
                 MedTrackFragment callingActivity = (MedTrackFragment) getParentFragment();
 

@@ -33,6 +33,8 @@ public class MedTrackAdapter extends RecyclerView.Adapter<MedTrackAdapter.ListIt
 
         holder.mDos.setText(medTrack.getDos());
 
+        holder.mTimes.setText(medTrack.getTimes());
+
         // Show the first 15 characters of the actual note
 
         // Unless a short note then show half
@@ -46,6 +48,7 @@ public class MedTrackAdapter extends RecyclerView.Adapter<MedTrackAdapter.ListIt
     public class ListItemHolder extends RecyclerView.ViewHolder {
         TextView mMed;
         TextView mDos;
+        TextView mTimes;
 
         public ListItemHolder(View view) {
 
@@ -54,6 +57,8 @@ public class MedTrackAdapter extends RecyclerView.Adapter<MedTrackAdapter.ListIt
             mMed =view.findViewById(R.id.txtViewMed);
 
             mDos=view.findViewById(R.id.txtViewDosage);
+
+            mTimes=view.findViewById(R.id.txtViewTimes);
 
 //            view.setClickable(true);
 //

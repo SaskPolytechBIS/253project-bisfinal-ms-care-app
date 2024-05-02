@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_symptoms_and_journaling"
         android:icon="@drawable/symptoms_icon"
-        android:title="S/J" />
+        android:title="Journaling" />
 
     <item
         android:id="@+id/navigation_reminders"

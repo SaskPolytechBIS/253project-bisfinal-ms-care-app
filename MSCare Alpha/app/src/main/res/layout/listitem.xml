@@ -11,12 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="109dp"
         app:cardBackgroundColor="#303F9F"
-        app:cardCornerRadius="7dp">
+        app:cardCornerRadius="18dp">
 
         <TextView
             android:id="@+id/txtViewMed"
-            android:layout_width="match_parent"
-            android:layout_height="137dp"
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/dm_sans"
             android:text="TextView"
             android:textColor="#FFFFFF"
@@ -26,11 +28,21 @@
             android:id="@+id/txtViewDosage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="45dp"
             android:fontFamily="@font/dm_sans"
             android:text="TextView"
             android:textColor="#FFFFFF"
             android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txtViewTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="70dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
 
     </androidx.cardview.widget.CardView>
 
