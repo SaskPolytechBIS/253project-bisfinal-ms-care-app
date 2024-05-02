@@ -89,4 +89,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"/>
 
+    <EditText
+        android:id="@+id/editDrinks"
+        android:layout_width="279dp"
+        android:layout_height="122dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="Remind to Drink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.635" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

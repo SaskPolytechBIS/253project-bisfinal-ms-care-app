@@ -32,6 +32,8 @@ public class ShowMedFragment extends DialogFragment {
 
         TextView viewFood = dialogView.findViewById(R.id.viewFood);
 
+        TextView viewDrink = dialogView.findViewById(R.id.viewDrink);
+
         viewMed.setText(mMedTrack.getMed());
 
         viewDos.setText(mMedTrack.getDos());
@@ -39,6 +41,8 @@ public class ShowMedFragment extends DialogFragment {
         viewTimes.setText(mMedTrack.getTimes());
 
         viewFood.setText(mMedTrack.getFoods());
+
+        viewDrink.setText(mMedTrack.getDrinks());
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
 

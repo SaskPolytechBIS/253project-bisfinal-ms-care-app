@@ -153,6 +153,16 @@
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/viewDrink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
