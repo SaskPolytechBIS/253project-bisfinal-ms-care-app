@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,6 +24,7 @@ import com.example.mscarealpha.MedTrack;
 import com.example.mscarealpha.MedTrackAdapter;
 import com.example.mscarealpha.NewMedTrackFragment;
 import com.example.mscarealpha.R;
+import com.example.mscarealpha.ShowMedFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -185,6 +185,16 @@ public class MedTrackFragment extends Fragment{
     public void removeItems() {
         medTrackList.clear();
         mAdapter.notifyDataSetChanged();
+    }
+
+    public void showMed(int noteToShow){
+
+        ShowMedFragment dialog = new ShowMedFragment();
+
+        dialog.sendNoteSelected(medTrackList.get(noteToShow));
+
+        dialog.show(getChildFragmentManager(), "");
+
     }
 
 

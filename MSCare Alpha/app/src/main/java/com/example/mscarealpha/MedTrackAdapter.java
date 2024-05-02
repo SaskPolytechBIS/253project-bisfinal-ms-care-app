@@ -45,7 +45,7 @@ public class MedTrackAdapter extends RecyclerView.Adapter<MedTrackAdapter.ListIt
         return mMedList.size();
     }
 
-    public class ListItemHolder extends RecyclerView.ViewHolder {
+    public class ListItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView mMed;
         TextView mDos;
         TextView mTimes;
@@ -60,16 +60,14 @@ public class MedTrackAdapter extends RecyclerView.Adapter<MedTrackAdapter.ListIt
 
             mTimes=view.findViewById(R.id.txtViewTimes);
 
-//            view.setClickable(true);
-//
-//            view.setOnClickListener(this);
+           view.setClickable(true);
+
+          view.setOnClickListener(this);
         }
 
-//        @Override
-//
-//        public void onClick(View view) {
-//            mMedTrackFragment.showNote(getAdapterPosition());
-//        }
+       @Override
+
+        public void onClick(View view) { mMedTrackFragment.showMed(getAdapterPosition());}
     }
     public MedTrackAdapter(MedTrackFragment medTrackFragment,
 
