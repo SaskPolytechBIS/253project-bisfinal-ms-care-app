@@ -1,4 +1,4 @@
-package com.example.mscarealpha.ui.reminders;
+package com.example.mscarealpha.ui.notes;
 
 
 import android.os.Bundle;
@@ -12,18 +12,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mscarealpha.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class DailyRemindersFragment extends Fragment {
+public class NotesFragment extends Fragment {
 
 
-    public static DailyRemindersFragment newInstance() {
-        return new DailyRemindersFragment();
+    public static NotesFragment newInstance() {
+        return new NotesFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_reminders, container, false);
+        View view = inflater.inflate(R.layout.fragment_notes, container, false);
+
+
+
+
+        return view;
     }
 
     }
