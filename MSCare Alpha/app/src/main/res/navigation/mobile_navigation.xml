@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_symptoms_and_journaling"
+        android:id="@+id/navigation_symptoms_journaling"
         android:name="com.example.mscarealpha.ui.symptoms.SymptomsFragment"
         android:label="Symptoms Journaling"
-        tools:layout="@layout/fragment_symptoms_and_journaling" />
+        tools:layout="@layout/fragment_symptoms_journaling" />
 
     <fragment
-        android:id="@+id/navigation_reminders"
-        android:name="com.example.mscarealpha.ui.notes.NotesFragment"
+        android:id="@+id/navigation_notes"
+        android:name="com.example.mscarealpha.ui.notes.AppointmentNotesFragment"
         android:label="Appointment Notes"
         tools:layout="@layout/fragment_notes" />
     <fragment
