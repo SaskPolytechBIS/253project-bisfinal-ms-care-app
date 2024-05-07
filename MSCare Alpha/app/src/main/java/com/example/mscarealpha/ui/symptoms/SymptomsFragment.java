@@ -21,7 +21,7 @@ public class SymptomsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_symptoms_and_journaling, container, false);
+        return inflater.inflate(R.layout.fragment_symptoms_journaling, container, false);
     }
 
     }
