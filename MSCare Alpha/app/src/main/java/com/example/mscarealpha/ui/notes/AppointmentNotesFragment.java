@@ -54,7 +54,7 @@ public class AppointmentNotesFragment extends Fragment {
             }
         });
 
-        mSerializer = new JSONSerializerForNotes("NoteToSelf.json", requireContext());
+        mSerializer = new JSONSerializerForNotes("AppointmentNotes.json", requireContext());
 
         try {
             noteList = mSerializer.load();
@@ -90,7 +90,7 @@ public class AppointmentNotesFragment extends Fragment {
     }
     public void onResume(){
         super.onResume();
-        mPrefs = requireActivity().getSharedPreferences("Note to self", MODE_PRIVATE);
+        mPrefs = requireActivity().getSharedPreferences("Appointment Notes", MODE_PRIVATE);
     }
 
 
