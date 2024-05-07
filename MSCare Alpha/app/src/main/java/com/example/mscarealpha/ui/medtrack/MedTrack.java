@@ -1,4 +1,4 @@
-package com.example.mscarealpha;
+package com.example.mscarealpha.ui.medtrack;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.example.mscarealpha;
+package com.example.mscarealpha.ui.faqs;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.mscarealpha.R;
 import com.example.mscarealpha.ui.medtrack.MedTrackFragment;
 
 public class AboutFragment extends DialogFragment {

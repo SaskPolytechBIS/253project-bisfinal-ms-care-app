@@ -1,25 +1,18 @@
-package com.example.mscarealpha;
+package com.example.mscarealpha.ui.medtrack;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
+import com.example.mscarealpha.R;
+import com.example.mscarealpha.ui.medtrack.MedTrack;
 import com.example.mscarealpha.ui.medtrack.MedTrackFragment;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 
 public class NewMedTrackFragment extends DialogFragment {
 

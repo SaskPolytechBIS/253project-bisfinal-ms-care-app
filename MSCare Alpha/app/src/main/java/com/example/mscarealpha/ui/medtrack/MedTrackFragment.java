@@ -19,12 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 
-import com.example.mscarealpha.JSONSerializer;
-import com.example.mscarealpha.MedTrack;
-import com.example.mscarealpha.MedTrackAdapter;
-import com.example.mscarealpha.NewMedTrackFragment;
 import com.example.mscarealpha.R;
-import com.example.mscarealpha.ShowMedFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -53,7 +48,7 @@ public class MedTrackFragment extends Fragment{
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_medtrack, container, false);
 
-        FloatingActionButton fabAdd, fabDel, fabOpenClose;
+        FloatingActionButton fabAdd, fabDel, fabOpenClose, fabReminders;
 
         fabDel = view.findViewById(R.id.fab_clear_all);
 
@@ -61,15 +56,19 @@ public class MedTrackFragment extends Fragment{
 
         fabAdd = view.findViewById(R.id.fab_add_medtrack);
 
+        fabReminders = view.findViewById(R.id.fab_reminders);
+
         Float translationYaxis = 100f;
 
         final Boolean[] menuOpen = {false};
 
         fabDel.setAlpha(0f);
         fabAdd.setAlpha(0f);
+        fabReminders.setAlpha(0f);
 
         fabDel.setTranslationY(translationYaxis);
         fabAdd.setTranslationY(translationYaxis);
+        fabReminders.setTranslationY(translationYaxis);
 
         fabOpenClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +86,7 @@ public class MedTrackFragment extends Fragment{
                 fabOpenClose.setImageResource(R.drawable.baseline_keyboard_arrow_down_24);
                 fabDel.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
                 fabAdd.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+                fabReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
             }
 
             private void CloseMenu() {
@@ -94,6 +94,7 @@ public class MedTrackFragment extends Fragment{
                 fabOpenClose.setImageResource(R.drawable.baseline_keyboard_arrow_up_24);
                 fabDel.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
                 fabAdd.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+                fabReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
             }
         });
 
@@ -114,6 +115,14 @@ public class MedTrackFragment extends Fragment{
                 mAdapter.notifyDataSetChanged();
             }
         }
+        );
+
+        fabReminders.setOnClickListener(new View.OnClickListener(){
+         @Override
+                public void onClick(View v) {
+
+                }
+           }
         );
 
 
@@ -180,6 +189,12 @@ public class MedTrackFragment extends Fragment{
 
         saveNotes();
 
+    }
+
+    public void remove(MedTrack mt) {
+        medTrackList.remove(mt);
+
+        mAdapter.notifyDataSetChanged();
     }
 
     public void removeItems() {

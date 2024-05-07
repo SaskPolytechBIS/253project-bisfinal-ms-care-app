@@ -9,10 +9,7 @@ import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.strictmode.FragmentStrictMode;
 
-import com.example.mscarealpha.AboutFragment;
-import com.example.mscarealpha.NewMedTrackFragment;
 import com.example.mscarealpha.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

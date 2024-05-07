@@ -1,4 +1,4 @@
-package com.example.mscarealpha;
+package com.example.mscarealpha.ui.medtrack;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -10,9 +10,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.mscarealpha.R;
+import com.example.mscarealpha.ui.medtrack.MedTrack;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShowMedFragment extends DialogFragment {
 
     private MedTrack mMedTrack;
+
+    private List<MedTrack> medTrackList = new ArrayList<>();
+
 
     @Override
 
@@ -46,7 +55,18 @@ public class ShowMedFragment extends DialogFragment {
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
 
+        Button btnDel = (Button) dialogView.findViewById(R.id.btnDel);
+
         builder.setView(dialogView).setMessage("Your Medicine");
+
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                dismiss();
+            }
+        });
 
         btnOK.setOnClickListener(new View.OnClickListener() {
 
@@ -62,6 +82,8 @@ public class ShowMedFragment extends DialogFragment {
 
         return builder.create();
     }
+
+
 
     public void sendNoteSelected(MedTrack medTrackSelected) {
 
