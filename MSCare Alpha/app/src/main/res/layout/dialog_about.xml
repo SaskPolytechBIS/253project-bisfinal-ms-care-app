@@ -31,14 +31,14 @@
         android:id="@+id/viewAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="44dp"
         android:text="MS Care"
         app:layout_constraintBottom_toTopOf="@+id/viewVersion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintVertical_bias="0.507" />
 
     <TextView
         android:id="@+id/viewCopyright"
@@ -66,18 +66,18 @@
         android:id="@+id/viewVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Version: 1.0 Pre-alpha 1(Build 20)"
+        android:layout_marginBottom="8dp"
+        android:text="Version: 1.0 Alpha (Build 30)"
         app:layout_constraintBottom_toTopOf="@+id/viewCopyright"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/viewDevs"
         android:layout_width="183dp"
         android:layout_height="172dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="220dp"
         android:lines="4"
         android:singleLine="false"
         android:text="Jorge Carretero \nAlvi Najiyat \nGladys Pormento \nBimal Kaji Shiwakoti"

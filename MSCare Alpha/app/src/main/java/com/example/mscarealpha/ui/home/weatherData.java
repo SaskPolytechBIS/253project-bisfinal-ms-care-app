@@ -67,7 +67,7 @@ public class weatherData {
         }
         else if(condition>=801 && condition<=804)
         {
-            return "cloudy";
+            return "day_partial_cloud";
         }
        else  if(condition>=900 && condition<=902)
         {

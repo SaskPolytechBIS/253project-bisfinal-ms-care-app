@@ -68,7 +68,7 @@
             android:layout_width="345dp"
             android:layout_height="185dp"
             android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="#7B1FA2"
+            app:cardBackgroundColor="#512DA8"
             app:cardCornerRadius="18dp"
             app:layout_constraintBottom_toTopOf="@+id/txtWeather"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,9 +139,9 @@
 
             <ImageView
                 android:id="@+id/weatherIcon"
-                android:layout_width="117dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="130dp"
+                android:layout_height="63dp"
+                android:layout_marginTop="60dp"
                 android:src="@drawable/finding">
 
             </ImageView>
@@ -150,7 +150,8 @@
                 android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="65dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="100dp"
                 android:fontFamily="@font/dm_sans"
                 android:paddingStart="30dp"
                 android:text="0*C"
@@ -164,7 +165,8 @@
                 android:id="@+id/weatherCondition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="110dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="80dp"
                 android:fontFamily="@font/dm_sans"
                 android:paddingStart="30sp"
                 android:text="---------"
@@ -177,10 +179,11 @@
                 android:id="@+id/cityName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="130dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/dm_sans"
                 android:paddingStart="30sp"
-                android:text="Fetching___"
+                android:text="Loading..."
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold">
