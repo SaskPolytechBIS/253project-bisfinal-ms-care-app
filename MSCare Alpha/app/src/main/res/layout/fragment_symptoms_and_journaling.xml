@@ -8,25 +8,26 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="313dp"
+        android:layout_width="311dp"
         android:layout_height="0dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="86dp"
         android:src="@drawable/human_body_paper_doll"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/symptom_menu"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/dropdown_menu" />
 
     <Spinner
         android:id="@+id/dropdown_menu"
         android:layout_width="0dp"
         android:layout_height="32dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="49dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="46dp"
         app:layout_constraintBottom_toTopOf="@+id/symptom_menu"
         app:layout_constraintEnd_toEndOf="@+id/symptom_menu"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -54,13 +55,15 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="121dp"
+        android:layout_width="0dp"
         android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="29dp"
         android:text="Pain Range"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -68,17 +71,18 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="53dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="17dp"
         android:text="Bearable"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/textView6" />
+        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="94dp"
         android:text="Notes and Comments"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/seekBar2" />
@@ -102,25 +106,24 @@
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
         android:max="10"
         android:progress="3"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="163dp"
         android:text="Extremely Painful"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/seekBar2" />
 
     <EditText
@@ -128,15 +131,29 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="33dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seekBar2" />
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
