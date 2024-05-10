@@ -24,9 +24,9 @@ public class DialogNewNote extends DialogFragment {
 
         final EditText editTitle = dialogView.findViewById(R.id.editTitle);
         final EditText editDescription = dialogView.findViewById(R.id.editDescription);
-        final CheckBox checkBoxIdea = dialogView.findViewById(R.id.cbQuestions);
-        final CheckBox checkBoxTodo = dialogView.findViewById(R.id.cbNotes);
-        final CheckBox checkBoxImportant = dialogView.findViewById(R.id.cbToDo);
+        final CheckBox checkBoxQuestions = dialogView.findViewById(R.id.cbQuestions);
+        final CheckBox checkBoxNotes = dialogView.findViewById(R.id.cbNotes);
+        final CheckBox checkBoxTodo = dialogView.findViewById(R.id.cbToDo);
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnOK = dialogView.findViewById(R.id.btnOK);
 
@@ -56,10 +56,9 @@ public class DialogNewNote extends DialogFragment {
                 newNote.setDescription(editDescription.
                         getText().toString());
 
-                newNote.setQuestions(checkBoxIdea.isChecked());
+                newNote.setQuestions(checkBoxQuestions.isChecked());
+                newNote.setNotes(checkBoxNotes.isChecked());
                 newNote.setTodo(checkBoxTodo.isChecked());
-                newNote.setNotes(checkBoxImportant.
-                        isChecked());
 
                 // Get a reference to MainActivity
                 AppointmentNotesFragment callingActivity = (AppointmentNotesFragment) getParentFragment();
