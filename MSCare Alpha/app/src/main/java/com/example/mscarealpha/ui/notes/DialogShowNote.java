@@ -43,22 +43,22 @@ public class DialogShowNote extends DialogFragment {
         TextView txtQuestions =
                 dialogView.findViewById(R.id.textViewQuestions);
 
-        TextView txtTodo =
-                dialogView.findViewById(R.id.textViewTodo);
-
         TextView txtNotes =
                 dialogView.findViewById(R.id.textViewNotes);
+
+        TextView txtTodo =
+                dialogView.findViewById(R.id.textViewTodo);
 
         if (!mNote.isQuestions()){
             txtQuestions.setVisibility(View.GONE);
         }
 
-        if (!mNote.isTodo()){
-            txtTodo.setVisibility(View.GONE);
-        }
-
         if (!mNote.isNotes()){
             txtNotes.setVisibility(View.GONE);
+        }
+
+        if (!mNote.isTodo()){
+            txtTodo.setVisibility(View.GONE);
         }
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);

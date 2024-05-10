@@ -95,9 +95,9 @@ public class AppointmentNotesFragment extends Fragment {
 
 
     public void showNote(int noteToShow){
-//        DialogShowNote dialog = new DialogShowNote();
-//        dialog.sendNoteSelected(noteList.get(noteToShow));
-//        dialog.show(getSupportFragmentManager(), "");
+        DialogShowNote dialog = new DialogShowNote();
+        dialog.sendNoteSelected(noteList.get(noteToShow));
+        dialog.show(getChildFragmentManager(), "");
     }
 
     public void saveNotes(){
