@@ -41,7 +41,7 @@ public class symptomDialog extends DialogFragment {
                 // When onClick completed, Dialog closes automatically
                 // Reset the fragment and Navigate to navigation_symptoms_and_journaling
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                navController.navigate(R.id.navigation_symptoms_and_journaling);
+                navController.navigate(R.id.navigation_symptoms_journaling);
 
                 }
         });

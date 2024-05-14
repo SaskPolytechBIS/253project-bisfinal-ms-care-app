@@ -51,7 +51,7 @@ public class SymptomsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_symptoms_and_journaling, container, false);
+        View root = inflater.inflate(R.layout.fragment_symptoms_journaling, container, false);
 
         // Getting references to the UI widgets
         Button btnLog = root.findViewById(R.id.logging_button);
