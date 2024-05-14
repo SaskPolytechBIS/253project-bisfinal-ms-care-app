@@ -117,14 +117,13 @@ public class MedTrackFragment extends Fragment{
         }
         );
 
-        fabReminders.setOnClickListener(new View.OnClickListener(){
-         @Override
-                public void onClick(View v) {
 
-                }
-           }
-        );
-
+        fabReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToReminderSettings();
+            }
+        });
 
 
 
@@ -159,7 +158,13 @@ public class MedTrackFragment extends Fragment{
         return view;
 
     }
-
+    private void navigateToReminderSettings() {
+        ReminderNotificationsFragment reminderFragment = new ReminderNotificationsFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, reminderFragment)  // Assume 'container' is the ID of your FrameLayout where fragments are swapped
+                .addToBackStack(null)
+                .commit();
+    }
 
     public void createNewMed(MedTrack mt){
         // Temporary code
