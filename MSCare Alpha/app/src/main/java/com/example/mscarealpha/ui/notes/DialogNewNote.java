@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -24,9 +27,9 @@ public class DialogNewNote extends DialogFragment {
 
         final EditText editTitle = dialogView.findViewById(R.id.editTitle);
         final EditText editDescription = dialogView.findViewById(R.id.editDescription);
-        final CheckBox checkBoxQuestions = dialogView.findViewById(R.id.cbQuestions);
-        final CheckBox checkBoxNotes = dialogView.findViewById(R.id.cbNotes);
-        final CheckBox checkBoxTodo = dialogView.findViewById(R.id.cbToDo);
+        final RadioButton radioButtonQuestions = dialogView.findViewById(R.id.rbQuestions);
+        final RadioButton radioButtonNotes = dialogView.findViewById(R.id.rbNotes);
+        final RadioButton radioButtonTodo = dialogView.findViewById(R.id.rbTodo);
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnOK = dialogView.findViewById(R.id.btnOK);
 
@@ -56,9 +59,10 @@ public class DialogNewNote extends DialogFragment {
                 newNote.setDescription(editDescription.
                         getText().toString());
 
-                newNote.setQuestions(checkBoxQuestions.isChecked());
-                newNote.setNotes(checkBoxNotes.isChecked());
-                newNote.setTodo(checkBoxTodo.isChecked());
+                newNote.setQuestions(radioButtonQuestions.isChecked());
+                newNote.setNotes(radioButtonNotes.isChecked());
+                newNote.setTodo(radioButtonTodo.isChecked());
+
 
                 // Get a reference to MainActivity
                 AppointmentNotesFragment callingActivity = (AppointmentNotesFragment) getParentFragment();
