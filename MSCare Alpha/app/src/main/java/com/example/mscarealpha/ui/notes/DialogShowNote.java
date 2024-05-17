@@ -17,6 +17,7 @@ public class DialogShowNote extends DialogFragment {
 
     private AppointmentNotes mNote;
 
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -30,6 +31,7 @@ public class DialogShowNote extends DialogFragment {
 
         View dialogView =
                 inflater.inflate(R.layout.dialog_show_note, null);
+
 
         TextView txtTitle =
                 dialogView.findViewById(R.id.txtTitle);
@@ -82,4 +84,6 @@ public class DialogShowNote extends DialogFragment {
     }
 
 }
+
+
 

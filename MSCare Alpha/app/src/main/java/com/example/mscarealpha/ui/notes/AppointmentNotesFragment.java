@@ -45,12 +45,21 @@ public class AppointmentNotesFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes, container, false);
         FloatingActionButton fabAdd_Notes = view.findViewById(R.id.fabAdd_Notes);
+        FloatingActionButton fabDel_Notes = view.findViewById(R.id.fabDel_Notes);
 
         fabAdd_Notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogNewNote dialog = new DialogNewNote ();
                 dialog.show(getChildFragmentManager(), "");
+            }
+        });
+
+        fabDel_Notes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                noteList.clear();
+                mAdapter.notifyDataSetChanged();
             }
         });
 
