@@ -45,50 +45,48 @@
             app:layout_constraintStart_toStartOf="@+id/txtGreetings"
             app:layout_constraintTop_toBottomOf="@+id/txtGreetings" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="331dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="156dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/dm_sans"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
-            android:text="DAILY AFFIRMATIONS"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.375"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.cardview.widget.CardView
-            android:layout_width="345dp"
-            android:layout_height="185dp"
-            android:layout_marginBottom="20dp"
+            android:layout_width="343dp"
+            android:layout_height="242dp"
+            android:layout_marginBottom="28dp"
             app:cardBackgroundColor="#512DA8"
             app:cardCornerRadius="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/txtWeather"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent">
+
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="285dp"
                 android:layout_height="148dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/dm_sans"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                android:text="Loading..."
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
                 android:textSize="21sp"
                 android:typeface="normal" />
+
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/dm_sans"
+                android:shadowColor="#000000"
+                android:text="Daily Affirmations"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
+
 
         <WebView
             android:id="@+id/weatherCard"
@@ -106,42 +104,24 @@
             app:layout_constraintVertical_bias="0.0" />
 
 
-        <TextView
-            android:id="@+id/txtWeather"
-            android:layout_width="337dp"
-            android:layout_height="47dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/dm_sans"
-            android:shadowColor="#100101"
-            android:shadowRadius="10"
-            android:text="WEATHER"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.513"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="343dp"
-            android:layout_height="189dp"
+            android:layout_width="345dp"
+            android:layout_height="225dp"
             android:layout_marginBottom="2321dp"
             app:cardBackgroundColor="#512DA8"
             app:cardCornerRadius="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.558"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="0.947">
 
             <ImageView
                 android:id="@+id/weatherIcon"
                 android:layout_width="130dp"
                 android:layout_height="63dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="90dp"
                 android:src="@drawable/finding">
 
             </ImageView>
@@ -151,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="110dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="140dp"
                 android:fontFamily="@font/dm_sans"
                 android:paddingStart="30dp"
                 android:text="0*C"
@@ -166,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="110dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="120dp"
                 android:fontFamily="@font/dm_sans"
                 android:paddingStart="30sp"
                 android:text="---------"
@@ -180,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="110dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="85dp"
                 android:fontFamily="@font/dm_sans"
                 android:paddingStart="30sp"
                 android:text="Loading..."
@@ -189,6 +169,21 @@
                 android:textStyle="bold">
 
             </TextView>
+
+            <TextView
+                android:id="@+id/txtWeather"
+                android:layout_width="291dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/dm_sans"
+                android:shadowColor="#100101"
+                android:text="Weather"
+                android:textAlignment="viewStart"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
