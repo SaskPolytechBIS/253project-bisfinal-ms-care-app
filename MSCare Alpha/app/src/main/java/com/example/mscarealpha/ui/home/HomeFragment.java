@@ -24,6 +24,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.mscarealpha.R;
 import com.example.mscarealpha.databinding.FragmentHomeBinding;
 
@@ -34,7 +39,9 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -119,6 +126,36 @@ public class HomeFragment extends Fragment {
         Temperature = view.findViewById(R.id.temperature);
         mweatherIcon = view.findViewById(R.id.weatherIcon);
         NameofCity = view.findViewById(R.id.cityName);
+
+
+        TextView da = view.findViewById(R.id.textView7);
+
+
+        String url = "https://www.affirmations.dev/";
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+
+                    String quote = response.getString("affirmation");
+//                    String author = response.getString("a");
+//                    String h = response.getString("h");
+                    da.setText(quote+"\n");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                da.setText("Failed ");
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        requestQueue.add(jsonObjectRequest);
 
 
 
