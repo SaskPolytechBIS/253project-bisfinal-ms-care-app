@@ -18,6 +18,7 @@ public class DialogShowNote extends DialogFragment {
     private AppointmentNotes mNote;
 
 
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -32,6 +33,17 @@ public class DialogShowNote extends DialogFragment {
         View dialogView =
                 inflater.inflate(R.layout.dialog_show_note, null);
 
+<<<<<<< Updated upstream
+=======
+        TextView txtDate =
+                dialogView.findViewById(R.id.txtViewDate);
+
+       // SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+         //Set the formatted date to the TextView
+        txtDate.setText(dateFormat);
+>>>>>>> Stashed changes
 
         TextView txtTitle =
                 dialogView.findViewById(R.id.txtTitle);
