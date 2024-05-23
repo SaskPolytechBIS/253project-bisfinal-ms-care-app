@@ -17,8 +17,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
     private List<AppointmentNotes> mNoteList;
     private AppointmentNotesFragment mAppointmentNotesFragment;
 
-
-
     @NonNull
     @Override
     public ListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,6 +33,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
 
         holder.mDescription.setText(note.getDescription());
 
+        holder.mDate.setText(note.getCurrentDate());
 
         // What is the status of the note?
         if(note.isQuestions()){
@@ -59,6 +58,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
         TextView mTitle;
         TextView mDescription;
         TextView mStatus;
+        TextView mDate;
 
 
         public ListItemHolder(View view) {
@@ -73,6 +73,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
             mStatus = 
                     view.findViewById(R.id.textViewStatus);
 
+            mDate = view.findViewById((R.id.tvDate));
+
+
             view.setClickable(true);
             view.setOnClickListener(this);
 
@@ -81,8 +84,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
         @Override
         public void onClick(View view) {
             mAppointmentNotesFragment.showNote(getAdapterPosition());
-
-
         }
     }
 

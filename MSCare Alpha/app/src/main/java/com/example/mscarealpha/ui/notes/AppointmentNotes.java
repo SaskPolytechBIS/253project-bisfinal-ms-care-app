@@ -3,12 +3,17 @@ package com.example.mscarealpha.ui.notes;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class AppointmentNotes {
     private String mTitle;
     private String mDescription;
     private boolean mQuestions;
     private boolean mNotes;
     private boolean mTodo;
+
 
     private static final String JSON_TITLE = "title";
     private static final String JSON_DESCRIPTION = "description";
@@ -57,6 +62,11 @@ public class AppointmentNotes {
         this.mTodo = mTodo;
     }
 
+    public String getCurrentDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        return dateFormat.format(new Date());
+    }
+
     // Constructor
     // Only used when new is called with a JSONObject
     public AppointmentNotes(JSONObject jo) throws JSONException {
@@ -73,7 +83,6 @@ public class AppointmentNotes {
     // for when we create a Note as we provide a
     // specialized constructor.
     public AppointmentNotes (){
-
     }
 
     public JSONObject convertToJSON() throws JSONException{

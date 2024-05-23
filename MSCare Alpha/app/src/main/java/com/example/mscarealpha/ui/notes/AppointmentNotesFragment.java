@@ -118,9 +118,6 @@ public class AppointmentNotesFragment extends Fragment {
         }
     }
 
-//    public boolean delNotes{
-//
-//    }
 
     @Override
     public void onPause(){
