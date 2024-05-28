@@ -35,12 +35,13 @@
 
     <RadioGroup
         android:id="@+id/radioGroup1"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
+        android:layout_width="201dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="204dp"
         app:layout_constraintBottom_toTopOf="@+id/btnCancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintEnd_toStartOf="@+id/btnSetReminder"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
@@ -87,6 +88,16 @@
         android:layout_marginBottom="64dp"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnSetReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="212dp"
+        android:text="Set Reminder"
+        app:layout_constraintBottom_toTopOf="@+id/btnOK"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

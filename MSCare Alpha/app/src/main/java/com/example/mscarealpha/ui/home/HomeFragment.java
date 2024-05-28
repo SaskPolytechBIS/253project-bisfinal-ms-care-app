@@ -174,9 +174,7 @@ public class HomeFragment extends Fragment {
 
     private List<AffirmationsAdapter> affirmationsAdapter = new ArrayList<>();
 
-    private void readAffirmations() {
 
-    }
 
     @Override
     public void onResume() {
