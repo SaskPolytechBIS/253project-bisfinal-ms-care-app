@@ -9,6 +9,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,8 +33,16 @@ import com.android.volley.toolbox.Volley;
 import com.example.mscarealpha.R;
 import com.example.mscarealpha.databinding.FragmentHomeBinding;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Random;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -129,38 +138,43 @@ public class HomeFragment extends Fragment {
 
 
         TextView da = view.findViewById(R.id.textView7);
-
-
-        String url = "https://www.affirmations.dev/";
-
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-
-                    String quote = response.getString("affirmation");
-//                    String author = response.getString("a");
-//                    String h = response.getString("h");
-                    da.setText(quote+"\n");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        InputStream is = getResources().openRawResource(R.raw.affirmations);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line = "";
+        List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
+        try {
+            reader.readLine(); // Skip header line
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split(",");
+                affirmationsList.add(tokens);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                da.setText("Failed ");
-            }
-        });
+            // Generate a random index
+            Random random = new Random();
+            int randomIndex = random.nextInt(affirmationsList.size());
 
-        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
-        requestQueue.add(jsonObjectRequest);
+            // Get the affirmation at the random index
+            String[] randomAffirmation = affirmationsList.get(randomIndex);
+            String randomAffirmationText = randomAffirmation[1]; // Assuming affirmation text is at index 1
+
+            // Set the random affirmation text to the TextView
+            da.setText(randomAffirmationText);
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading data file on line " + line, e);
+            e.printStackTrace();
+        }
 
 
 
         return view;
 
+
+    }
+
+    private List<AffirmationsAdapter> affirmationsAdapter = new ArrayList<>();
+
+    private void readAffirmations() {
 
     }
 
