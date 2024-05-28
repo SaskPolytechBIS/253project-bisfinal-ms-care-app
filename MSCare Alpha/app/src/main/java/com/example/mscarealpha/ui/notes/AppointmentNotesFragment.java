@@ -131,4 +131,4 @@ public class AppointmentNotesFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
     }
 
-    }
+}
