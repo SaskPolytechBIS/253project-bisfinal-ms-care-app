@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.TextView;
 
 import com.example.mscarealpha.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -58,6 +59,12 @@ public class MedTrackFragment extends Fragment{
 
         fabReminders = view.findViewById(R.id.fab_reminders);
 
+        TextView viewDel = view.findViewById(R.id.viewDel);
+
+        TextView viewAdd = view.findViewById(R.id.viewAdd);
+
+        TextView viewReminders = view.findViewById(R.id.viewReminders);
+
         Float translationYaxis = 100f;
 
         final Boolean[] menuOpen = {false};
@@ -65,10 +72,18 @@ public class MedTrackFragment extends Fragment{
         fabDel.setAlpha(0f);
         fabAdd.setAlpha(0f);
         fabReminders.setAlpha(0f);
+        viewDel.setAlpha(0f);
+        viewAdd.setAlpha(0f);
+        viewReminders.setAlpha(0f);
+
 
         fabDel.setTranslationY(translationYaxis);
         fabAdd.setTranslationY(translationYaxis);
         fabReminders.setTranslationY(translationYaxis);
+        viewDel.setTranslationY(translationYaxis);
+        viewAdd.setTranslationY(translationYaxis);
+        viewReminders.setTranslationY(translationYaxis);
+
 
         fabOpenClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,16 +100,22 @@ public class MedTrackFragment extends Fragment{
                 menuOpen[0] = !menuOpen[0];
                 fabOpenClose.setImageResource(R.drawable.baseline_keyboard_arrow_down_24);
                 fabDel.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+                viewDel.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
                 fabAdd.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+                viewAdd.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
                 fabReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+                viewReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
             }
 
             private void CloseMenu() {
                 menuOpen[0] = !menuOpen[0];
                 fabOpenClose.setImageResource(R.drawable.baseline_keyboard_arrow_up_24);
                 fabDel.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+                viewDel.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
                 fabAdd.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+                viewAdd.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
                 fabReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+                viewReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
             }
         });
 
