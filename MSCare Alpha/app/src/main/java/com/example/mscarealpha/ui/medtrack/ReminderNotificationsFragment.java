@@ -24,12 +24,12 @@ import com.example.mscarealpha.R;
 import java.util.Calendar;
 import java.util.Objects;
 
-import android.widget.EditText;  // Add this import for EditText
+import android.widget.EditText; // Add this import for EditText
 
 public class ReminderNotificationsFragment extends Fragment {
 
     private Button btnSetReminder;
-    private EditText editTextReminderMessage;  // Reference for EditText
+    private EditText editTextReminderMessage; // Reference for EditText
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -38,7 +38,7 @@ public class ReminderNotificationsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_reminder_notifications, container, false);
 
         btnSetReminder = view.findViewById(R.id.btn_set_reminder);
-        editTextReminderMessage = view.findViewById(R.id.editTextReminderMessage);  // Connect to EditText
+        editTextReminderMessage = view.findViewById(R.id.editTextReminderMessage); // Connect to EditText
 
 
         btnSetReminder.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class ReminderNotificationsFragment extends Fragment {
 
     @SuppressLint("ScheduleExactAlarm")
     private void setReminder(int hourOfDay, int minute) {
-        String reminderMessage = editTextReminderMessage.getText().toString();  // Get the custom message
+        String reminderMessage = editTextReminderMessage.getText().toString(); // Get the custom message
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -79,8 +79,8 @@ public class ReminderNotificationsFragment extends Fragment {
         try {
             AlarmManager alarmManager = (AlarmManager) requireActivity().getSystemService(Context.ALARM_SERVICE);
             Intent intent = new Intent(getActivity(), AlertReceiver.class);
-            intent.putExtra("EXTRA_REMINDER_MESSAGE", reminderMessage);  // Pass the message
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            intent.putExtra("EXTRA_REMINDER_MESSAGE", reminderMessage); // Pass the message
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
             if (alarmManager != null) {
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
@@ -93,9 +93,8 @@ public class ReminderNotificationsFragment extends Fragment {
     }
 
 
-        private String formatMinute(int minute) {
-            return minute < 10 ? "0" + minute : String.valueOf(minute);
-        }
-
+    private String formatMinute(int minute) {
+        return minute < 10 ? "0" + minute : String.valueOf(minute);
     }
 
+}
