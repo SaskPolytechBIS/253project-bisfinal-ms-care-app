@@ -19,11 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notes"
-<<<<<<< Updated upstream
         android:name="com.example.mscarealpha.ui.notes.AppointmentNotesFragment"
-=======
-        android:name="com.example.mscarealpha.ui.notes.NotesFragment"
->>>>>>> Stashed changes
         android:label="Appointment Notes"
         tools:layout="@layout/fragment_notes" />
     <fragment

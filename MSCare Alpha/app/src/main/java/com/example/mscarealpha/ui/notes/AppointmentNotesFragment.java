@@ -126,5 +126,9 @@ public class AppointmentNotesFragment extends Fragment {
         saveNotes();
 
     }
+    public void onNoteDeleted(AppointmentNotes note) {
+        noteList.remove(note);
+        mAdapter.notifyDataSetChanged();
+    }
 
     }

@@ -2,6 +2,7 @@ package com.example.mscarealpha.ui.notes;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mscarealpha.R;
 
@@ -22,6 +24,16 @@ import java.util.Locale;
 public class DialogShowNote extends DialogFragment {
 
     private AppointmentNotes mNote;
+    private DialogShowNoteListener mListener;
+    private NoteAdapter mAdapter;
+    private JSONSerializerForNotes mSerializer;
+    private SharedPreferences mPrefs;
+    private RecyclerView recyclerView;
+
+    public interface DialogShowNoteListener{
+        void onNoteDeleted(AppointmentNotes note);
+        void onNoteUpdated(AppointmentNotes note);
+    }
 
 
 
@@ -81,6 +93,7 @@ public class DialogShowNote extends DialogFragment {
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
         Button btnEdit = (Button) dialogView.findViewById(R.id.btnEdit);
+        Button btnDelete = dialogView.findViewById(R.id.btnDelete);
 
 
         builder.setView(dialogView).setMessage("Your Note");
@@ -99,8 +112,16 @@ public class DialogShowNote extends DialogFragment {
             }
         });
 
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDeleteConfirmationDialog();
+            }
+        });
+
         return builder.create();
     }
+
 
     private void showEditNoteDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -147,6 +168,32 @@ public class DialogShowNote extends DialogFragment {
         mNote = noteSelected;
     }
 
+    private void showDeleteConfirmationDialog() {
+        new AlertDialog.Builder(getActivity())
+                .setMessage("Are you sure you want to delete this note?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       deleteNote();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create()
+                .show();
+    }
+    private void deleteNote() {
+        // Perform the deletion logic here
+        if (mNote != null && mListener != null) {
+            mListener.onNoteDeleted (mNote);
+            // Close the dialog after deletion
+            dismiss();
+        }
+    }
+
+    public void onNoteUpdated(AppointmentNotes note) {
+        mAdapter.notifyDataSetChanged();
+    }
 }
 
 

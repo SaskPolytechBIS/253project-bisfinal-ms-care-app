@@ -33,6 +33,7 @@ public class DialogNewNote extends DialogFragment {
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnOK = dialogView.findViewById(R.id.btnOK);
 
+
         builder.setView(dialogView).setMessage("Add a new note");
 
         // Handle the cancel button
@@ -76,8 +77,6 @@ public class DialogNewNote extends DialogFragment {
         });
 
         return builder.create();
-
     }
-
 
 }

@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class AppointmentNotes {
     private String mTitle;
@@ -13,6 +14,7 @@ public class AppointmentNotes {
     private boolean mQuestions;
     private boolean mNotes;
     private boolean mTodo;
+
 
 
     private static final String JSON_TITLE = "title";
