@@ -121,4 +121,4 @@ public class AppointmentNotesFragment extends Fragment {
 
     }
 
-    }
+}
