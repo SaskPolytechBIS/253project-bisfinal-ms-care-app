@@ -94,8 +94,8 @@
         android:layout_width="279dp"
         android:layout_height="122dp"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="Remind to Drink"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.356"
@@ -105,24 +105,26 @@
 
     <EditText
         android:id="@+id/editTextReminderMessage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="156dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
         android:hint="Reminder message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@id/btn_set_reminder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDrinks"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/editDrinks" />
 
     <Button
         android:id="@+id/btn_set_reminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="114dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="84dp"
         android:text="Set Reminder"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReminderMessage"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintStart_toEndOf="@id/editTextReminderMessage"
+        app:layout_constraintTop_toBottomOf="@+id/editDrinks"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

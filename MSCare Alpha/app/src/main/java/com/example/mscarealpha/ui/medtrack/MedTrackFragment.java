@@ -57,13 +57,13 @@ public class MedTrackFragment extends Fragment{
 
         fabAdd = view.findViewById(R.id.fab_add_medtrack);
 
-        fabReminders = view.findViewById(R.id.fab_reminders);
+//        fabReminders = view.findViewById(R.id.fab_reminders);
 
         TextView viewDel = view.findViewById(R.id.viewDel);
 
         TextView viewAdd = view.findViewById(R.id.viewAdd);
 
-        TextView viewReminders = view.findViewById(R.id.viewReminders);
+//        TextView viewReminders = view.findViewById(R.id.viewReminders);
 
         Float translationYaxis = 100f;
 
@@ -71,18 +71,18 @@ public class MedTrackFragment extends Fragment{
 
         fabDel.setAlpha(0f);
         fabAdd.setAlpha(0f);
-        fabReminders.setAlpha(0f);
+//        fabReminders.setAlpha(0f);
         viewDel.setAlpha(0f);
         viewAdd.setAlpha(0f);
-        viewReminders.setAlpha(0f);
+//        viewReminders.setAlpha(0f);
 
 
         fabDel.setTranslationY(translationYaxis);
         fabAdd.setTranslationY(translationYaxis);
-        fabReminders.setTranslationY(translationYaxis);
+//        fabReminders.setTranslationY(translationYaxis);
         viewDel.setTranslationY(translationYaxis);
         viewAdd.setTranslationY(translationYaxis);
-        viewReminders.setTranslationY(translationYaxis);
+//        viewReminders.setTranslationY(translationYaxis);
 
 
         fabOpenClose.setOnClickListener(new View.OnClickListener() {
@@ -103,8 +103,8 @@ public class MedTrackFragment extends Fragment{
                 viewDel.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
                 fabAdd.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
                 viewAdd.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
-                fabReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
-                viewReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+//                fabReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+//                viewReminders.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
             }
 
             private void CloseMenu() {
@@ -114,8 +114,8 @@ public class MedTrackFragment extends Fragment{
                 viewDel.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
                 fabAdd.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
                 viewAdd.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
-                fabReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
-                viewReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+//                fabReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+//                viewReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
             }
         });
 
@@ -139,12 +139,12 @@ public class MedTrackFragment extends Fragment{
         );
 
 
-        fabReminders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToReminderSettings();
-            }
-        });
+//        fabReminders.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                navigateToReminderSettings();
+//            }
+//        });
 
 
 

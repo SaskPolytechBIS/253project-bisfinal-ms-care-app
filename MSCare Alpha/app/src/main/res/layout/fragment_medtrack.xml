@@ -43,6 +43,7 @@
             android:layout_marginTop="20dp"
             android:clickable="true"
             android:src="@drawable/baseline_notifications_24"
+            android:visibility="gone"
             app:fabSize="mini" />
 
         <TextView
@@ -58,7 +59,8 @@
             android:shadowRadius="1"
             android:text="Set Reminder"
             android:textAlignment="textEnd"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:visibility="gone" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_add_medtrack"
