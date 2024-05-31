@@ -15,6 +15,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mscarealpha.R;
+import com.example.mscarealpha.ui.medtrack.MedTrack;
+import com.example.mscarealpha.ui.medtrack.MedTrackFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +31,8 @@ public class DialogShowNote extends DialogFragment {
     private JSONSerializerForNotes mSerializer;
     private SharedPreferences mPrefs;
     private RecyclerView recyclerView;
+
+
 
     public interface DialogShowNoteListener{
         void onNoteDeleted(AppointmentNotes note);
@@ -174,8 +178,9 @@ public class DialogShowNote extends DialogFragment {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       deleteNote();
+                        deleteNote();
                     }
+
 
                 })
                 .setNegativeButton("No", null)
@@ -183,17 +188,18 @@ public class DialogShowNote extends DialogFragment {
                 .show();
     }
     private void deleteNote() {
-        // Perform the deletion logic here
-        if (mNote != null && mListener != null) {
-            mListener.onNoteDeleted (mNote);
-            // Close the dialog after deletion
-            dismiss();
+        AppointmentNotesFragment parentFragment = (AppointmentNotesFragment) getParentFragment();
+
+        // Call the remove method to delete the MedTrack object
+        if (parentFragment != null) {
+            parentFragment.remove(mNote);
         }
+
+        // Dismiss the dialog
+        dismiss();
     }
 
-    public void onNoteUpdated(AppointmentNotes note) {
-        mAdapter.notifyDataSetChanged();
-    }
+
 }
 
 

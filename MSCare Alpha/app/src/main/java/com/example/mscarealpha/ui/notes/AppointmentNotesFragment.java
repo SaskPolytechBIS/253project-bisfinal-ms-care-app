@@ -184,9 +184,16 @@ public class AppointmentNotesFragment extends Fragment {
         saveNotes();
 
     }
-    public void onNoteDeleted(AppointmentNotes note) {
-        noteList.remove(note);
+
+    public void remove(AppointmentNotes an) {
+        noteList.remove(an);
+
         mAdapter.notifyDataSetChanged();
+        saveNotes();
     }
+//    public void onNoteDeleted(AppointmentNotes note) {
+//        noteList.remove(note);
+//        mAdapter.notifyDataSetChanged();
+//    }
 
 }

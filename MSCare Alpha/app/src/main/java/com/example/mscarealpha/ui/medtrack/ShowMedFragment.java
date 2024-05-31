@@ -1,6 +1,7 @@
 package com.example.mscarealpha.ui.medtrack;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.mscarealpha.R;
-import com.example.mscarealpha.ui.medtrack.MedTrack;
+import com.example.mscarealpha.ui.notes.AppointmentNotesFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,8 +64,8 @@ public class ShowMedFragment extends DialogFragment {
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showDelAlert();
 
-//                dismiss();
             }
         });
 
@@ -83,9 +84,37 @@ public class ShowMedFragment extends DialogFragment {
         return builder.create();
     }
 
+    private void showDelAlert() {
+        new AlertDialog.Builder(getActivity())
+                .setMessage("Are you sure you want to delete this Medication? This action cannot be undone.")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteNote();
+                    }
 
 
-    public void sendNoteSelected(MedTrack medTrackSelected) {
+                })
+                .setNegativeButton("No", null)
+                .create()
+                .show();
+    }
+    private void deleteNote() {
+        // Get reference to the parent fragment/activity
+        MedTrackFragment parentFragment = (MedTrackFragment) getParentFragment();
+
+        // Call the remove method to delete the MedTrack object
+        if (parentFragment != null) {
+            parentFragment.remove(mMedTrack);
+        }
+
+        // Dismiss the dialog
+        dismiss();
+    }
+
+
+
+    public void sendMedTrackSelected(MedTrack medTrackSelected) {
 
         mMedTrack = medTrackSelected;
 
