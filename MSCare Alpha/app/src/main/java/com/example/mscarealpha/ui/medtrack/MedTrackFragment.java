@@ -221,18 +221,15 @@ public class MedTrackFragment extends Fragment{
         medTrackList.remove(mt);
 
         mAdapter.notifyDataSetChanged();
+        saveNotes();
     }
 
-    public void removeItems() {
-        medTrackList.clear();
-        mAdapter.notifyDataSetChanged();
-    }
 
     public void showMed(int noteToShow){
 
         ShowMedFragment dialog = new ShowMedFragment();
 
-        dialog.sendNoteSelected(medTrackList.get(noteToShow));
+        dialog.sendMedTrackSelected(medTrackList.get(noteToShow));
 
         dialog.show(getChildFragmentManager(), "");
 
