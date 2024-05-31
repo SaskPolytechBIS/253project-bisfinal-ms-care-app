@@ -29,7 +29,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -76,11 +76,11 @@
             android:background="@drawable/fab_bg"
             android:fontFamily="@font/dm_sans"
             android:padding="2dp"
+            android:shadowColor="#000000"
+            android:shadowRadius="1"
             android:text="Call 9-8-8"
             android:textAlignment="viewEnd"
-            android:textColor="#000000"
-            android:shadowColor="#000000"
-            android:shadowRadius="1"/>
+            android:textColor="#000000" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabAbout"
@@ -102,11 +102,11 @@
             android:background="@drawable/fab_bg"
             android:fontFamily="@font/dm_sans"
             android:padding="2dp"
+            android:shadowColor="#000000"
+            android:shadowRadius="1"
             android:text="About MS Care"
             android:textAlignment="textEnd"
-            android:textColor="#000000"
-            android:shadowColor="#000000"
-            android:shadowRadius="1"/>
+            android:textColor="#000000" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_open_close_2"

@@ -113,10 +113,12 @@
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/dm_sans"
+            android:paddingLeft="16dp"
             android:text="Do not take the following:"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/viewFood"
@@ -149,10 +151,12 @@
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/dm_sans"
+            android:paddingLeft="15dp"
             android:text="Drink:"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/viewDrink"
