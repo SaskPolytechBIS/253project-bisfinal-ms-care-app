@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,6 +37,9 @@ public class SymptomsFragment extends Fragment {
     private RecyclerView recyclerView; // to reference the recyclerview UI Widget
     HashMap<String, List<String>> symptomMap; // Map body parts to symptoms
 
+    // Hashmap to store the reference for the images for the body part
+    HashMap<String, Integer> bodyPartImageMap;
+
     // Array of strings for menu items (body parts)
     String[] bodyParts = {
             "Head and Cognitive", "Neck and Shoulder", "Chest", "Hand", "Stomach", "Groin and Sexual",
@@ -59,6 +63,19 @@ public class SymptomsFragment extends Fragment {
         symptomSpinner = root.findViewById(R.id.symptom_dropdown);
         SeekBar pain_range_bar = root.findViewById(R.id.pain_range_bar);
         TextView notes_and_comments = root.findViewById(R.id.notes_and_comments_textbox);
+
+        bodyPartImageMap = new HashMap<>();
+
+        bodyPartImageMap.put("Head and Cognitive", R.drawable.head_img);
+        bodyPartImageMap.put("Neck and Shoulder", R.drawable.neck_and_shoulder_img);
+        bodyPartImageMap.put("Chest", R.drawable.chest_img);
+        bodyPartImageMap.put("Hand", R.drawable.hand_img);
+        bodyPartImageMap.put("Stomach", R.drawable.stomach_img);
+        bodyPartImageMap.put("Groin and Sexual", R.drawable.groin_img);
+        bodyPartImageMap.put("Thigh and Upper Leg", R.drawable.thigh_and_upperleg_img);
+        bodyPartImageMap.put("Lower Leg", R.drawable.lowerleg_img);
+        bodyPartImageMap.put("Upper and Lower Back", R.drawable.upper_and_lower_img);
+        bodyPartImageMap.put("Back Head and Neck", R.drawable.back_head_and_neck_img);
 
 
         // Initialize the symptom map (MS symptom data)
@@ -104,6 +121,15 @@ public class SymptomsFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedBodyPart = parent.getItemAtPosition(position).toString();
                 updateSymptomSpinner(selectedBodyPart);
+
+                // Update the image based on the selected body part
+                ImageView imageView = root.findViewById(R.id.imageView2);
+                Integer imageResource = bodyPartImageMap.get(selectedBodyPart);
+                if (imageResource != null) {
+                    imageView.setImageResource(imageResource);
+                } else {
+                    imageView.setImageResource(R.drawable.main_paper_doll_img); // Set a default image if not found
+                }
             }
 
             @Override
