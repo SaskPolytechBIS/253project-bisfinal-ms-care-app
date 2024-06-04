@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,11 +37,14 @@ public class SymptomsFragment extends Fragment {
     private RecyclerView recyclerView; // to reference the recyclerview UI Widget
     HashMap<String, List<String>> symptomMap; // Map body parts to symptoms
 
+    // Hashmap to store the reference for the images for the body part
+    HashMap<String, Integer> bodyPartImageMap;
+
     // Array of strings for menu items (body parts)
     String[] bodyParts = {
-            "Head", "Neck and Shoulder", "Chest", "Hand", "Stomach", "Groin",
-            "Thigh and Upper Leg", "Lower Leg", "Upper Back", "Lower Back",
-            "Back Head and Neck", "Lower Leg Back"
+            "Head and Cognitive", "Neck and Shoulder", "Chest", "Hand", "Stomach", "Groin and Sexual",
+            "Thigh and Upper Leg", "Lower Leg", "Upper and Lower Back",
+            "Back Head and Neck"
     };
 
     public static SymptomsFragment newInstance() {
@@ -60,45 +64,53 @@ public class SymptomsFragment extends Fragment {
         SeekBar pain_range_bar = root.findViewById(R.id.pain_range_bar);
         TextView notes_and_comments = root.findViewById(R.id.notes_and_comments_textbox);
 
+        bodyPartImageMap = new HashMap<>();
+
+        bodyPartImageMap.put("Head and Cognitive", R.drawable.head_img);
+        bodyPartImageMap.put("Neck and Shoulder", R.drawable.neck_and_shoulder_img);
+        bodyPartImageMap.put("Chest", R.drawable.chest_img);
+        bodyPartImageMap.put("Hand", R.drawable.hand_img);
+        bodyPartImageMap.put("Stomach", R.drawable.stomach_img);
+        bodyPartImageMap.put("Groin and Sexual", R.drawable.groin_img);
+        bodyPartImageMap.put("Thigh and Upper Leg", R.drawable.thigh_and_upperleg_img);
+        bodyPartImageMap.put("Lower Leg", R.drawable.lowerleg_img);
+        bodyPartImageMap.put("Upper and Lower Back", R.drawable.upper_and_lower_img);
+        bodyPartImageMap.put("Back Head and Neck", R.drawable.back_head_and_neck_img);
+
 
         // Initialize the symptom map (MS symptom data)
         symptomMap = new HashMap<>();
 
         // Head
-        symptomMap.put("Head", Arrays.asList("Cognitive changes", "Headaches", "Dizziness", "Facial numbness", "Vision problems"));
+        symptomMap.put("Head and Cognitive", Arrays.asList("Optic Neuritis", "Diplopia", "Nystagmus", "Ocular Dysmetria", "Internuclear Ophthalmoplegia", "Phosphenes", "Cognitive Dysfunction", "Mood swings", "Emotional lability", "Euphoria", "Depression", "Anxiety", "Aphasia", "Dysphasia"));
 
-        // Neck and Shoulder
-        symptomMap.put("Neck and Shoulder", Arrays.asList("Pain and stiffness", "Lhermitte's sign", "Weakness"));
+// Neck and Shoulder
+        symptomMap.put("Neck and Shoulder", Arrays.asList("Pain and stiffness", "Lhermitte's sign", "Muscle Atrophy", "Paresis", "Plegia", "Spasticity", "Dysarthria"));
 
-        // Chest
+// Chest
         symptomMap.put("Chest", Arrays.asList("Tightness or banding sensation (MS hug)", "Respiratory problems"));
 
-        // Hand
-        symptomMap.put("Hand", Arrays.asList("Numbness and tingling", "Weakness", "Tremors"));
+// Hand
+        symptomMap.put("Hand", Arrays.asList("Numbness and tingling", "Weakness", "Tremors", "Paraesthesia", "Anaesthesia", "Intention Tremor", "Dysmetria"));
 
-        // Stomach
-        symptomMap.put("Stomach", Arrays.asList("Bowel problems", "Pain or discomfort"));
+// Stomach
+        symptomMap.put("Stomach", Arrays.asList("Bowel problems", "Pain or discomfort", "Gastroesophageal Reflux"));
 
-        // Groin
-        symptomMap.put("Groin", Arrays.asList("Sexual dysfunction", "Bladder problems"));
+// Groin
+        symptomMap.put("Groin and Sexual", Arrays.asList("Sexual dysfunction", "Bladder problems", "Frequent Micturation", "Bladder Spasticity", "Flaccid Bladder", "Detrusor-Sphincter Dyssynergia", "Erectile Dysfunction", "Anorgasmy", "Retrograde ejaculation", "Frigidity", "Constipation", "Fecal Urgency", "Fecal Incontinence"));
 
-        // Thigh and Upper Leg
-        symptomMap.put("Thigh and Upper Leg", Arrays.asList("Weakness", "Numbness and tingling", "Spasticity"));
+// Thigh and Upper Leg
+        symptomMap.put("Thigh and Upper Leg", Arrays.asList("Weakness", "Numbness and tingling", "Spasticity", "Paresis", "Plegia", "Muscle Atrophy", "Spasms/Cramps", "Hypotonia/Clonus"));
 
-        // Lower Leg
-        symptomMap.put("Lower Leg", Arrays.asList("Weakness", "Numbness and tingling", "Foot drop"));
+// Lower Leg
+        symptomMap.put("Lower Leg", Arrays.asList("Pain and stiffness","Weakness","Spasticity", "Numbness and tingling", "Foot drop", "Paresis", "Plegia", "Muscle Atrophy", "Spasms/Cramps", "Hypotonia/Clonus", "Restless Leg Syndrome"));
 
-        // Upper Back
-        symptomMap.put("Upper Back", Arrays.asList("Pain and stiffness", "Weakness"));
+// Upper Back
+        symptomMap.put("Upper and Lower Back", Arrays.asList("Pain and stiffness", "Weakness", "Paresis", "Plegia", "Muscle Atrophy", "Spasms/Cramps"));
 
-        // Lower Back
-        symptomMap.put("Lower Back", Arrays.asList("Pain and stiffness", "Weakness"));
+// Back Head and Neck
+        symptomMap.put("Back Head and Neck", Arrays.asList("Pain and stiffness", "Muscle spasms", "Paresis", "Plegia", "Spasticity"));
 
-        // Back Head and Neck
-        symptomMap.put("Back Head and Neck", Arrays.asList("Pain and stiffness", "Muscle spasms"));
-
-        // Lower Leg Back
-        symptomMap.put("Lower Leg Back", Arrays.asList("Pain and stiffness", "Muscle spasms"));
 
         ArrayAdapter<String> bodyPartAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, new ArrayList<>(symptomMap.keySet()));
         bodyPartAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -109,6 +121,15 @@ public class SymptomsFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedBodyPart = parent.getItemAtPosition(position).toString();
                 updateSymptomSpinner(selectedBodyPart);
+
+                // Update the image based on the selected body part
+                ImageView imageView = root.findViewById(R.id.imageView2);
+                Integer imageResource = bodyPartImageMap.get(selectedBodyPart);
+                if (imageResource != null) {
+                    imageView.setImageResource(imageResource);
+                } else {
+                    imageView.setImageResource(R.drawable.main_paper_doll_img); // Set a default image if not found
+                }
             }
 
             @Override
