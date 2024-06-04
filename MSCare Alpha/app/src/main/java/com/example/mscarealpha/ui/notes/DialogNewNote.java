@@ -3,6 +3,10 @@ package com.example.mscarealpha.ui.notes;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,7 +101,40 @@ public class DialogNewNote extends DialogFragment {
     }
 
     private void setReminder(int hourOfDay, int minute) {
-        // Reminder setting logic here
-        Toast.makeText(getActivity(), "Reminder set for " + hourOfDay + ":" + minute, Toast.LENGTH_SHORT).show();
+        String reminderTitle = editTitle.getText().toString();
+        String reminderMessage = editDescription.getText().toString();
+
+        if (reminderTitle.isEmpty()) {
+            Toast.makeText(getActivity(), "Please enter a title", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        calendar.set(Calendar.MINUTE, minute);
+        calendar.set(Calendar.SECOND, 0);
+
+        try {
+            AlarmManager alarmManager = (AlarmManager) requireActivity().getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(getActivity(), AlertReceiverNotes.class);
+            intent.putExtra("EXTRA_REMINDER_TITLE", reminderTitle);
+            intent.putExtra("EXTRA_REMINDER_MESSAGE", reminderMessage);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+            if (alarmManager != null) {
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                Toast.makeText(getActivity(), "Reminder set for " + hourOfDay + ":" + formatMinute(minute), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Failed to set reminder", Toast.LENGTH_SHORT).show();
+            }
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+            Toast.makeText(getActivity(), "Failed to set reminder", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String formatMinute(int minute) {
+        return minute < 10 ? "0" + minute : String.valueOf(minute);
     }
 }

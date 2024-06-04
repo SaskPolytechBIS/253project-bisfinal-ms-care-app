@@ -38,6 +38,8 @@
         </activity>
         <!-- Register the BroadcastReceiver -->
         <receiver android:name="com.example.mscarealpha.ui.medtrack.AlertReceiver" />
+        <receiver android:name="com.example.mscarealpha.ui.notes.AlertReceiverNotes" />
+
 
     </application>
 
