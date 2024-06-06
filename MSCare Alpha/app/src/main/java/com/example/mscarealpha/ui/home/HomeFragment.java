@@ -3,12 +3,14 @@ package com.example.mscarealpha.ui.home;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -41,7 +43,9 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -138,31 +142,68 @@ public class HomeFragment extends Fragment {
 
 
         TextView da = view.findViewById(R.id.textView7);
-        InputStream is = getResources().openRawResource(R.raw.affirmations);
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8"))
-        );
-        String line = "";
-        List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
-        try {
-            reader.readLine(); // Skip header line
-            while ((line = reader.readLine()) != null) {
-                String[] tokens = line.split(",");
-                affirmationsList.add(tokens);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        int lastSelectedIndex = sharedPreferences.getInt("lastSelectedIndex", -1);
+        String lastSelectedDate = sharedPreferences.getString("lastSelectedDate", "");
+        String line = ""; // Declare line outside the try-catch block
+
+// Get current date
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String currentDate = sdf.format(new Date());
+
+// Check if it's a new day
+        if (!currentDate.equals(lastSelectedDate) || lastSelectedIndex == -1) {
+            InputStream is = getResources().openRawResource(R.raw.affirmations);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(is, Charset.forName("UTF-8"))
+            );
+            List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
+            try {
+                reader.readLine(); // Skip header line
+                while ((line = reader.readLine()) != null) {
+                    String[] tokens = line.split(",");
+                    affirmationsList.add(tokens);
+                }
+                // Generate a random index
+                Random random = new Random();
+                int randomIndex = random.nextInt(affirmationsList.size());
+
+                // Get the affirmation at the random index
+                String[] randomAffirmation = affirmationsList.get(randomIndex);
+                String randomAffirmationText = randomAffirmation[1]; // Assuming affirmation text is at index 1
+
+                // Set the random affirmation text to the TextView
+                da.setText(randomAffirmationText);
+
+                // Save the selected index and date
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("lastSelectedIndex", randomIndex);
+                editor.putString("lastSelectedDate", currentDate);
+                editor.apply();
+            } catch (IOException e) {
+                Log.wtf("MyActivity", "Error reading data file on line " + line, e);
+                e.printStackTrace();
             }
-            // Generate a random index
-            Random random = new Random();
-            int randomIndex = random.nextInt(affirmationsList.size());
-
-            // Get the affirmation at the random index
-            String[] randomAffirmation = affirmationsList.get(randomIndex);
-            String randomAffirmationText = randomAffirmation[1]; // Assuming affirmation text is at index 1
-
-            // Set the random affirmation text to the TextView
-            da.setText(randomAffirmationText);
-        } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading data file on line " + line, e);
-            e.printStackTrace();
+        } else {
+            // If it's the same day, use the last selected index
+            List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
+            try {
+                InputStream is = getResources().openRawResource(R.raw.affirmations);
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(is, Charset.forName("UTF-8"))
+                );
+                reader.readLine(); // Skip header line
+                while ((line = reader.readLine()) != null) {
+                    String[] tokens = line.split(",");
+                    affirmationsList.add(tokens);
+                }
+                String[] lastSelectedAffirmation = affirmationsList.get(lastSelectedIndex);
+                String lastSelectedAffirmationText = lastSelectedAffirmation[1]; // Assuming affirmation text is at index 1
+                da.setText(lastSelectedAffirmationText);
+            } catch (IOException e) {
+                Log.wtf("MyActivity", "Error reading data file on line " + line, e);
+                e.printStackTrace();
+            }
         }
 
 
