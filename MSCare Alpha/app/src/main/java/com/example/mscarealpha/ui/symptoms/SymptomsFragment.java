@@ -1,8 +1,13 @@
 package com.example.mscarealpha.ui.symptoms;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +18,12 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mscarealpha.R;
@@ -33,6 +40,10 @@ public class SymptomsFragment extends Fragment {
     Spinner bodyPartSpinner, symptomSpinner;
     private List<Symptom> symptomlist= new ArrayList<>(); // the datasource
     private SymptomAdapter mAdapter; // for the Recycler.ViewAdapter
+
+    // for Database
+    private SymptomDbHelper dbHelper;
+    private SQLiteDatabase db;
 
     private RecyclerView recyclerView; // to reference the recyclerview UI Widget
     HashMap<String, List<String>> symptomMap; // Map body parts to symptoms
@@ -57,8 +68,11 @@ public class SymptomsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_symptoms_and_journaling, container, false);
 
+        // Get the reference to the SymptomDbHelper
+        SymptomDbHelper dbHelper = new SymptomDbHelper(getContext());
         // Getting references to the UI widgets
         Button btnLog = root.findViewById(R.id.logging_button);
+        // Button btnResults = root.findViewById(R.id.results_button);
         bodyPartSpinner = root.findViewById(R.id.bodypart_dropdown);
         symptomSpinner = root.findViewById(R.id.symptom_dropdown);
         SeekBar pain_range_bar = root.findViewById(R.id.pain_range_bar);
@@ -84,31 +98,31 @@ public class SymptomsFragment extends Fragment {
         // Head
         symptomMap.put("Head and Cognitive", Arrays.asList("Optic Neuritis", "Diplopia", "Nystagmus", "Ocular Dysmetria", "Internuclear Ophthalmoplegia", "Phosphenes", "Cognitive Dysfunction", "Mood swings", "Emotional lability", "Euphoria", "Depression", "Anxiety", "Aphasia", "Dysphasia"));
 
-// Neck and Shoulder
+        // Neck and Shoulder
         symptomMap.put("Neck and Shoulder", Arrays.asList("Pain and stiffness", "Lhermitte's sign", "Muscle Atrophy", "Paresis", "Plegia", "Spasticity", "Dysarthria"));
 
-// Chest
+        // Chest
         symptomMap.put("Chest", Arrays.asList("Tightness or banding sensation (MS hug)", "Respiratory problems"));
 
-// Hand
+        // Hand
         symptomMap.put("Hand", Arrays.asList("Numbness and tingling", "Weakness", "Tremors", "Paraesthesia", "Anaesthesia", "Intention Tremor", "Dysmetria"));
 
-// Stomach
+        // Stomach
         symptomMap.put("Stomach", Arrays.asList("Bowel problems", "Pain or discomfort", "Gastroesophageal Reflux"));
 
-// Groin
+        // Groin
         symptomMap.put("Groin and Sexual", Arrays.asList("Sexual dysfunction", "Bladder problems", "Frequent Micturation", "Bladder Spasticity", "Flaccid Bladder", "Detrusor-Sphincter Dyssynergia", "Erectile Dysfunction", "Anorgasmy", "Retrograde ejaculation", "Frigidity", "Constipation", "Fecal Urgency", "Fecal Incontinence"));
 
-// Thigh and Upper Leg
+        // Thigh and Upper Leg
         symptomMap.put("Thigh and Upper Leg", Arrays.asList("Weakness", "Numbness and tingling", "Spasticity", "Paresis", "Plegia", "Muscle Atrophy", "Spasms/Cramps", "Hypotonia/Clonus"));
 
-// Lower Leg
+        // Lower Leg
         symptomMap.put("Lower Leg", Arrays.asList("Pain and stiffness","Weakness","Spasticity", "Numbness and tingling", "Foot drop", "Paresis", "Plegia", "Muscle Atrophy", "Spasms/Cramps", "Hypotonia/Clonus", "Restless Leg Syndrome"));
 
-// Upper Back
+        // Upper Back
         symptomMap.put("Upper and Lower Back", Arrays.asList("Pain and stiffness", "Weakness", "Paresis", "Plegia", "Muscle Atrophy", "Spasms/Cramps"));
 
-// Back Head and Neck
+        // Back Head and Neck
         symptomMap.put("Back Head and Neck", Arrays.asList("Pain and stiffness", "Muscle spasms", "Paresis", "Plegia", "Spasticity"));
 
 
@@ -141,9 +155,9 @@ public class SymptomsFragment extends Fragment {
             public void onClick(View v) {
                 // Load the recycler view with some data in a loop
 
-
                 // Save Symptom Data
                 // 1. Get Selected Values from Spinners
+
                 String selectedBodyPart = bodyPartSpinner.getSelectedItem().toString();
                 String selectedSymptom = symptomSpinner.getSelectedItem().toString();
 
@@ -159,13 +173,26 @@ public class SymptomsFragment extends Fragment {
                 // 4. Alternative: Get Timestamp
                 long timestamp = System.currentTimeMillis();
 
-                // Creating a symptom object and populating it with the collected data
+                // Create a new Symptom object
                 Symptom newSymptom = new Symptom(selectedBodyPart, selectedSymptom, painLevel, notes, timestamp);
 
-                // adding the new Symptom to the data list
-                symptomlist.add(newSymptom);
+
+
+                // Database Code to insert the data into the database through the helper class that we have built
+
+
+                // Insert the symptom into the database using the SymptomDbHelper
+                try {
+                    dbHelper.insert(newSymptom);
+                } catch (SQLException e) {
+                    Log.e("SymptomsFragment", "Error inserting symptom: " + e.getMessage());
+                    Toast.makeText(requireContext(), "Error logging symptom", Toast.LENGTH_SHORT).show();
+                }
+
+
 
                 // Create an instance of the Dialog Fragment
+                // Opens Up a dialog that says the Symptom is logged successfully
                 symptomDialog myDialog = new symptomDialog();
 
                 // show the dialog using this Activity's Fragment Manager

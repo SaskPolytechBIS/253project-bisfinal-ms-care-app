@@ -17,9 +17,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mscarealpha.R;
 import com.example.mscarealpha.databinding.FragmentHomeBinding;
+import com.example.mscarealpha.ui.symptoms.Symptom;
+import com.example.mscarealpha.ui.symptoms.SymptomDbHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -86,6 +89,21 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         });
+
+        SymptomDbHelper dm = new SymptomDbHelper(getActivity());
+
+        TextView textResults = view.findViewById(R.id.results_home_textview); // Get the TextView
+
+        List<Symptom> symptomList = dm.selectAll(); // Fetch the symptom data
+        String list = ""; // Prepare a string to hold the formatted results
+
+        // Loop through the symptom list (not the Cursor)
+        for (Symptom symptom : symptomList) {
+            list += (symptom.getBodyPart() + " - " + symptom.getSymptomName() + " (Pain: " + symptom.getPainLevel() + ")\n"); // Format the symptom data
+        }
+
+        textResults.setText(list); // Display the formatted data in the TextView
+
         return view;
 
 
