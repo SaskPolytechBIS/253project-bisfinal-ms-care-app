@@ -13,6 +13,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,6 +28,7 @@
         android:layout_height="281dp"
         android:layout_marginBottom="16dp"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.918"
@@ -119,5 +121,132 @@
             app:fabSize="normal" />
 
     </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMSFAQs"
+        android:layout_width="360dp"
+        android:layout_height="123dp"
+        android:layout_marginBottom="116dp"
+        app:cardBackgroundColor="#85EEFF"
+        app:cardCornerRadius="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/cvCall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txtMSFAQs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="Common Questions \nfrom MS Canada"
+            android:textColor="#535353"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imgFAQs"
+            android:layout_width="63dp"
+            android:layout_height="87dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/faqs_icon" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvContact"
+        android:layout_width="360dp"
+        android:layout_height="93dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="#85EEFF"
+        app:cardCornerRadius="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/cvCall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txtContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="Mental Health Services"
+            android:textColor="#535353"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imgContact"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/baseline_person_24" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCall"
+        android:layout_width="360dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="#85EEFF"
+        app:cardCornerRadius="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/cvAbout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txtCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:text="Call 9-8-8"
+            android:textColor="#535353"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="58dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/baseline_phone_24" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAbout"
+        android:layout_width="360dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="216dp"
+        app:cardBackgroundColor="#85EEFF"
+        app:cardCornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txtAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:text="About MS Care"
+            android:textColor="#535353"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="59dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/baseline_info_24" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
