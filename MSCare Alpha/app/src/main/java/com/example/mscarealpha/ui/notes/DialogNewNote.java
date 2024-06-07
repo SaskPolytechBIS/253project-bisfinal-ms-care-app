@@ -100,4 +100,6 @@ public class DialogNewNote extends DialogFragment {
         // Reminder setting logic here
         Toast.makeText(getActivity(), "Reminder set for " + hourOfDay + ":" + minute, Toast.LENGTH_SHORT).show();
     }
+
+
 }
