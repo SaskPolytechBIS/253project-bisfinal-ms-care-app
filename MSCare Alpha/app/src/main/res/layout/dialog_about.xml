@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Version: 1.0 Beta (Build 31)"
+        android:text="Version: 1.0 Beta (Build 100)"
         app:layout_constraintBottom_toTopOf="@+id/viewCopyright"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
