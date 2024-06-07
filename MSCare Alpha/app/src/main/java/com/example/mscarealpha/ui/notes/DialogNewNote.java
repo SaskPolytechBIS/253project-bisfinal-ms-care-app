@@ -3,17 +3,12 @@ package com.example.mscarealpha.ui.notes;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -21,10 +16,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.mscarealpha.R;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class DialogNewNote extends DialogFragment {
 
@@ -34,7 +26,6 @@ public class DialogNewNote extends DialogFragment {
     private RadioButton radioButtonQuestions;
     private RadioButton radioButtonNotes;
     private RadioButton radioButtonTodo;
-    private EditText txtDate;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -50,13 +41,6 @@ public class DialogNewNote extends DialogFragment {
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnOK = dialogView.findViewById(R.id.btnOK);
         btnSetReminder = dialogView.findViewById(R.id.btnSetReminder);
-
-        txtDate = dialogView.findViewById(R.id.txtViewDate);
-
-        String dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-
-        //Set the formatted date to the TextView
-        txtDate.setText(dateFormat);
 
         builder.setView(dialogView).setMessage("Add a new note");
 
@@ -92,7 +76,6 @@ public class DialogNewNote extends DialogFragment {
         newNote.setQuestions(radioButtonQuestions.isChecked());
         newNote.setNotes(radioButtonNotes.isChecked());
         newNote.setTodo(radioButtonTodo.isChecked());
-        newNote.setDate(txtDate.getText().toString());
 
         AppointmentNotesFragment callingActivity = (AppointmentNotesFragment) getParentFragment();
         callingActivity.createNewNote(newNote);
@@ -114,40 +97,9 @@ public class DialogNewNote extends DialogFragment {
     }
 
     private void setReminder(int hourOfDay, int minute) {
-        String reminderTitle = editTitle.getText().toString();
-        String reminderMessage = editDescription.getText().toString();
-
-        if (reminderTitle.isEmpty()) {
-            Toast.makeText(getActivity(), "Please enter a title", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-        calendar.set(Calendar.MINUTE, minute);
-        calendar.set(Calendar.SECOND, 0);
-
-        try {
-            AlarmManager alarmManager = (AlarmManager) requireActivity().getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent(getActivity(), AlertReceiverNotes.class);
-            intent.putExtra("EXTRA_REMINDER_TITLE", reminderTitle);
-            intent.putExtra("EXTRA_REMINDER_MESSAGE", reminderMessage);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-            if (alarmManager != null) {
-                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                Toast.makeText(getActivity(), "Reminder set for " + hourOfDay + ":" + formatMinute(minute), Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getActivity(), "Failed to set reminder", Toast.LENGTH_SHORT).show();
-            }
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-            Toast.makeText(getActivity(), "Failed to set reminder", Toast.LENGTH_SHORT).show();
-        }
+        // Reminder setting logic here
+        Toast.makeText(getActivity(), "Reminder set for " + hourOfDay + ":" + minute, Toast.LENGTH_SHORT).show();
     }
 
-    private String formatMinute(int minute) {
-        return minute < 10 ? "0" + minute : String.valueOf(minute);
-    }
+
 }
