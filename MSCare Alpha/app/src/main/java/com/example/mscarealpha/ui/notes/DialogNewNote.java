@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -20,7 +21,10 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.mscarealpha.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class DialogNewNote extends DialogFragment {
 
@@ -30,6 +34,7 @@ public class DialogNewNote extends DialogFragment {
     private RadioButton radioButtonQuestions;
     private RadioButton radioButtonNotes;
     private RadioButton radioButtonTodo;
+    private EditText txtDate;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -45,6 +50,13 @@ public class DialogNewNote extends DialogFragment {
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnOK = dialogView.findViewById(R.id.btnOK);
         btnSetReminder = dialogView.findViewById(R.id.btnSetReminder);
+
+        txtDate = dialogView.findViewById(R.id.txtViewDate);
+
+        String dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+        //Set the formatted date to the TextView
+        txtDate.setText(dateFormat);
 
         builder.setView(dialogView).setMessage("Add a new note");
 
@@ -80,6 +92,7 @@ public class DialogNewNote extends DialogFragment {
         newNote.setQuestions(radioButtonQuestions.isChecked());
         newNote.setNotes(radioButtonNotes.isChecked());
         newNote.setTodo(radioButtonTodo.isChecked());
+        newNote.setDate(txtDate.getText().toString());
 
         AppointmentNotesFragment callingActivity = (AppointmentNotesFragment) getParentFragment();
         callingActivity.createNewNote(newNote);

@@ -33,7 +33,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
 
         holder.mDescription.setText(note.getDescription());
 
-        holder.mDate.setText(note.getCurrentDate());
+        holder.mDate.setText(note.getDate());
+
 
         // What is the status of the note?
         if(note.isQuestions()){
@@ -73,7 +74,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ListItemHolder
             mStatus = 
                     view.findViewById(R.id.textViewStatus);
 
-            mDate = view.findViewById((R.id.tvDate));
+            mDate = view.findViewById(R.id.tvDate);
 
 
             view.setClickable(true);

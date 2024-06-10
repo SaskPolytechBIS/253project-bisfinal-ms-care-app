@@ -65,7 +65,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="Frequency"
+        android:hint="How many times?"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnCancel"
         app:layout_constraintEnd_toEndOf="parent"
