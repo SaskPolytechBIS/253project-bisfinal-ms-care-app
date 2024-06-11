@@ -19,7 +19,10 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.mscarealpha.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class NewMedTrackFragment extends DialogFragment {
 
@@ -30,6 +33,8 @@ public class NewMedTrackFragment extends DialogFragment {
     private EditText editDrinks;
     private EditText editTextReminderMessage;
     private Button btnSetReminder;
+
+    private EditText editDate;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -43,7 +48,14 @@ public class NewMedTrackFragment extends DialogFragment {
         editFoods = dialogView.findViewById(R.id.editFoods);
         editDrinks = dialogView.findViewById(R.id.editDrinks);
         editTextReminderMessage = dialogView.findViewById(R.id.editTextReminderMessage);
+        editDate = dialogView.findViewById(R.id.txtDate);
         btnSetReminder = dialogView.findViewById(R.id.btn_set_reminder);
+
+
+        String dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+        //Set the formatted date to the TextView
+        editDate.setText(dateFormat);
 
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
         Button btnSave = dialogView.findViewById(R.id.btnSave);
@@ -66,6 +78,7 @@ public class NewMedTrackFragment extends DialogFragment {
                 newMed.setTimes(editTimes.getText().toString());
                 newMed.setFoods(editFoods.getText().toString());
                 newMed.setDrinks(editDrinks.getText().toString());
+                newMed.setDate2(editDate.getText().toString());
 
                 MedTrackFragment callingActivity = (MedTrackFragment) getParentFragment();
                 callingActivity.createNewMed(newMed);
