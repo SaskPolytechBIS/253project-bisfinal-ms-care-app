@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:ems="10"
-        android:hint="Description"
+        android:hint="Notes"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,5 +99,20 @@
         android:text="Set Reminder"
         app:layout_constraintBottom_toTopOf="@+id/btnOK"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:layout_marginBottom="8dp"
+        android:text="Type of Note"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editDescription"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
