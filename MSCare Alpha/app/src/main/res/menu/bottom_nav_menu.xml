@@ -24,6 +24,6 @@
     <item
         android:id="@+id/navigation_faqs"
         android:icon="@drawable/faqs_icon"
-        android:title="MS FAQs" />
+        android:title="More" />
 
 </menu>
