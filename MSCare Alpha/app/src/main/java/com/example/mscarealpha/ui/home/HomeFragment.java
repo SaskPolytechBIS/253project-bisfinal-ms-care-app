@@ -92,7 +92,7 @@ public class HomeFragment extends Fragment {
 
         SymptomDbHelper dm = new SymptomDbHelper(getActivity());
 
-        TextView textResults = view.findViewById(R.id.results_home_textview); // Get the TextView
+
 
         List<Symptom> symptomList = dm.selectAll(); // Fetch the symptom data
         String list = ""; // Prepare a string to hold the formatted results
@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment {
             list += (symptom.getBodyPart() + " - " + symptom.getSymptomName() + " (Pain: " + symptom.getPainLevel() + ")\n"); // Format the symptom data
         }
 
-        textResults.setText(list); // Display the formatted data in the TextView
+
 
         return view;
 

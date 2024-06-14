@@ -1,9 +1,6 @@
 package com.example.mscarealpha.ui.symptoms;
 
 import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Intent;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -23,18 +20,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mscarealpha.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class SymptomsFragment extends Fragment {
+public class SymptomsFragment2 extends Fragment{
 
 
     Spinner bodyPartSpinner, symptomSpinner;
@@ -58,15 +53,26 @@ public class SymptomsFragment extends Fragment {
             "Back Head and Neck"
     };
 
-    public static SymptomsFragment newInstance() {
-        return new SymptomsFragment();
+    public static SymptomsFragment2 newInstance() {
+        return new SymptomsFragment2();
     }
 
     @SuppressLint("SuspiciousIndentation")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_symptoms_and_journaling, container, false);
+        View root = inflater.inflate(R.layout.fragment_symptoms_journaling, container, false);
+
+        Button btnResults = root.findViewById(R.id.btnResults);
+
+        btnResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SymptomResults symptomResults = new SymptomResults();
+                symptomResults.show(getChildFragmentManager(), "");
+            }
+        });
 
         // Get the reference to the SymptomDbHelper
         SymptomDbHelper dbHelper = new SymptomDbHelper(getContext());
@@ -209,4 +215,6 @@ public class SymptomsFragment extends Fragment {
         symptomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         symptomSpinner.setAdapter(symptomAdapter);
     }
+
+
 }

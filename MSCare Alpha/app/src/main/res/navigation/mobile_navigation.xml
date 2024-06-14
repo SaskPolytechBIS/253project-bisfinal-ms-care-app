@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_symptoms_and_journaling"
-        android:name="com.example.mscarealpha.ui.symptoms.SymptomsFragment"
+        android:name="com.example.mscarealpha.ui.symptoms.SymptomsFragment2"
         android:label="Symptoms Journaling"
-        tools:layout="@layout/fragment_symptoms_and_journaling" />
+        tools:layout="@layout/fragment_symptoms_journaling" />
 
     <fragment
         android:id="@+id/navigation_reminders"
