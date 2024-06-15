@@ -17,18 +17,18 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="370dp"
-        android:layout_height="632dp"
+        android:layout_height="680dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.700"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.100" />
 
     <RelativeLayout
         android:layout_width="264dp"
         android:layout_height="281dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="96dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
             android:id="@+id/fab_add_medtrack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="195dp"
             android:layout_marginTop="80dp"
             android:clickable="true"
             android:src="@android:drawable/ic_input_add"
@@ -76,7 +76,7 @@
             android:id="@+id/viewAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="45dp"
             android:layout_marginTop="95dp"
             android:background="@drawable/fab_bg"
             android:fontFamily="@font/dm_sans"
@@ -91,17 +91,19 @@
             android:id="@+id/fab_clear_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="195dp"
             android:layout_marginTop="140dp"
             android:clickable="true"
             android:src="@android:drawable/ic_menu_delete"
-            app:fabSize="mini" />
+            app:fabSize="mini"
+            tools:layout_editor_absoluteX="327dp"
+            tools:layout_editor_absoluteY="582dp"/>
 
         <TextView
             android:id="@+id/viewDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="120dp"
             android:layout_marginTop="155dp"
             android:background="@drawable/fab_bg"
             android:fontFamily="@font/dm_sans"
@@ -114,7 +116,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_open_close"
-            android:layout_width="60dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="195dp"
             android:layout_marginTop="200dp"

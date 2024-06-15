@@ -65,7 +65,7 @@ public class MSFAQsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(getActivity())
-                        .setMessage("About \n\nMS Care Release Candidate\nVersion 1.0 Build 160\n© 2024 Saskatchewan Polytechnic\n\n\nStaff Credit:\n\nJorge Carretero (carretero3453@saskpolytech.ca)\nAlvi Najiyat \n(najiyat7041@saskpolytech.ca)\nGladys Pormento (pormento4957@saskpolytech.ca)\nBimal Kaji Shiwakoti (shiwakoti7364@saskpolytech.ca)")
+                        .setMessage("About \n\nMS Care Release Candidate\nVersion 1.0 Build 200\n© 2024 Saskatchewan Polytechnic\n\n\nStaff Credit:\n\nJorge Carretero (carretero3453@saskpolytech.ca)\nAlvi Najiyat \n(najiyat7041@saskpolytech.ca)\nGladys Pormento (pormento4957@saskpolytech.ca)\nBimal Kaji Shiwakoti (shiwakoti7364@saskpolytech.ca)")
                         .setPositiveButton("Source Code", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

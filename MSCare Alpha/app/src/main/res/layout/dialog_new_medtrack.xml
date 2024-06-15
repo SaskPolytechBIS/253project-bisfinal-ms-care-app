@@ -94,7 +94,7 @@
         android:layout_width="279dp"
         android:layout_height="122dp"
         android:ems="10"
-        android:hint="Remind to Drink"
+        android:hint="Drinks to avoid"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
