@@ -18,6 +18,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="370dp"
         android:layout_height="680dp"
+        android:paddingBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
