@@ -180,7 +180,9 @@ public class AppointmentNotesFragment extends Fragment {
         mPrefs = requireActivity().getSharedPreferences("Appointment Notes", MODE_PRIVATE);
     }
 
-
+    public void update(){
+        mAdapter.notifyDataSetChanged();
+    }
     public void showNote(int noteToShow){
         DialogShowNote dialog = new DialogShowNote();
         dialog.sendNoteSelected(noteList.get(noteToShow));
