@@ -17,21 +17,27 @@ public class AlertReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String reminderMessage = intent.getStringExtra("EXTRA_REMINDER_MESSAGE");  // Retrieve the custom message
+        String reminderType = intent.getStringExtra("EXTRA_REMINDER_TYPE");
+        String reminderMessage = intent.getStringExtra("EXTRA_REMINDER_MESSAGE");
         Log.d(TAG, "Received reminder: " + reminderMessage);
-        createNotification(context, reminderMessage);
+
+        if (reminderType != null && reminderMessage != null) {
+            createNotification(context, reminderType, reminderMessage);
+        }
     }
 
-    private void createNotification(Context context, String reminderMessage) {
+    private void createNotification(Context context, String reminderType, String reminderMessage) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        String channelId = "reminder_channel";
+        String channelName = "Reminder Notifications";
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
-                    "medication_reminder",
-                    "Medication Reminder",
+                    channelId,
+                    channelName,
                     NotificationManager.IMPORTANCE_HIGH
             );
-            channel.setDescription("Channel for Medication Reminder");
+            channel.setDescription("Channel for Reminder Notifications");
             if (notificationManager != null) {
                 notificationManager.createNotificationChannel(channel);
                 Log.d(TAG, "Notification channel created");
@@ -40,9 +46,11 @@ public class AlertReceiver extends BroadcastReceiver {
             }
         }
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "medication_reminder")
+        String notificationTitle = reminderType.equals("MEDICATION") ? "Medication Reminder" : "Appointment Reminder";
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.icon_small_notification)  // Ensure you have this icon in your drawables
-                .setContentTitle("Medication Reminder")
+                .setContentTitle(notificationTitle)
                 .setContentText(reminderMessage)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
