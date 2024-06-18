@@ -51,4 +51,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.loopj.android:android-async-http:1.4.11")
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
+    implementation ("com.google.android.material:material:1.7.0")
 }

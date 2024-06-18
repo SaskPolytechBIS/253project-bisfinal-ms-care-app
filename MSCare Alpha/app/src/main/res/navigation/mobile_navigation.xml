@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/navigation_notes"
         android:name="com.example.mscarealpha.ui.notes.AppointmentNotesFragment"
-        android:label="Appointment Notes"
+        android:label="Reminder Notes"
         tools:layout="@layout/fragment_notes" />
     <fragment
         android:id="@+id/navigation_medtrack"
@@ -31,6 +31,6 @@
     <fragment
         android:id="@+id/navigation_faqs"
         android:name="com.example.mscarealpha.ui.faqs.MSFAQsFragment"
-        android:label="MS FAQs"
+        android:label="Additional Info"
         tools:layout="@layout/fragment_faqs" />
 </navigation>

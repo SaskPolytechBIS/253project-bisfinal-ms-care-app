@@ -3,11 +3,13 @@ package com.example.mscarealpha.ui.medtrack;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -71,18 +73,14 @@ public class MedTrackFragment extends Fragment{
 
         fabDel.setAlpha(0f);
         fabAdd.setAlpha(0f);
-//        fabReminders.setAlpha(0f);
         viewDel.setAlpha(0f);
         viewAdd.setAlpha(0f);
-//        viewReminders.setAlpha(0f);
 
 
         fabDel.setTranslationY(translationYaxis);
         fabAdd.setTranslationY(translationYaxis);
-//        fabReminders.setTranslationY(translationYaxis);
         viewDel.setTranslationY(translationYaxis);
         viewAdd.setTranslationY(translationYaxis);
-//        viewReminders.setTranslationY(translationYaxis);
 
 
         fabOpenClose.setOnClickListener(new View.OnClickListener() {
@@ -130,10 +128,7 @@ public class MedTrackFragment extends Fragment{
         fabDel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-//                ClearAllWarning dialog = new ClearAllWarning();
-//                dialog.show(getChildFragmentManager(),"");
-                medTrackList.clear();
-                mAdapter.notifyDataSetChanged();
+                showClearAllMedTrackConfirmationDialog();
             }
         }
         );
@@ -185,6 +180,23 @@ public class MedTrackFragment extends Fragment{
                 .replace(R.id.container, reminderFragment)  // Assume 'container' is the ID of your FrameLayout where fragments are swapped
                 .addToBackStack(null)
                 .commit();
+    }
+
+    private void showClearAllMedTrackConfirmationDialog() {
+        new AlertDialog.Builder(getActivity())
+                .setMessage("Are you sure you want to delete all medications? This action cannot be undone.")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        medTrackList.clear();
+                        mAdapter.notifyDataSetChanged();
+                    }
+
+
+                })
+                .setNegativeButton("No", null)
+                .create()
+                .show();
     }
 
     public void createNewMed(MedTrack mt){

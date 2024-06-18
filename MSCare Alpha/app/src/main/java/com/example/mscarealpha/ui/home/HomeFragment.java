@@ -1,14 +1,18 @@
 package com.example.mscarealpha.ui.home;
 
+import static android.content.Context.LOCATION_SERVICE;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -41,7 +45,9 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -166,7 +172,6 @@ public class HomeFragment extends Fragment {
         }
 
 
-
         return view;
 
 
@@ -175,12 +180,11 @@ public class HomeFragment extends Fragment {
     private List<AffirmationsAdapter> affirmationsAdapter = new ArrayList<>();
 
 
-
     @Override
     public void onResume() {
         super.onResume();
-            getWeatherForCurrentLocation();
-
+        getWeatherForCurrentLocation();
+        getLastKnownLocation();
     }
 
 
@@ -189,24 +193,22 @@ public class HomeFragment extends Fragment {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
 
-        if(requestCode==REQUEST_CODE)
-        {
-            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-            {
+        if (requestCode == REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(requireContext(), "Location get Successfully", Toast.LENGTH_SHORT).show();
                 getWeatherForCurrentLocation();
-            }
-            else
-            {
+                getLastKnownLocation();
+            } else {
                 //user denied the permission
             }
         }
 
 
     }
+
     private void getWeatherForCurrentLocation() {
 
-        mLocationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
+        mLocationManager = (LocationManager) requireActivity().getSystemService(LOCATION_SERVICE);
         mLocationListner = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -214,13 +216,12 @@ public class HomeFragment extends Fragment {
                 String Latitude = String.valueOf(location.getLatitude());
                 String Longitude = String.valueOf(location.getLongitude());
 
-                RequestParams params =new RequestParams();
-                params.put("lat" ,Latitude);
-                params.put("lon",Longitude);
-                params.put("appid",APP_ID);
+                RequestParams params = new RequestParams();
+                params.put("lat", Latitude);
+                params.put("lon", Longitude);
+                params.put("appid", APP_ID);
                 letsdoSomeNetworking(params);
-
-
+                getLastKnownLocation();
 
 
             }
@@ -250,6 +251,31 @@ public class HomeFragment extends Fragment {
         mLocationManager.requestLocationUpdates(Location_Provider, MIN_TIME, MIN_DISTANCE, mLocationListner);
 
     }
+
+    private Location getLastKnownLocation() {
+        // Use requireContext() to get the Context of the fragment
+        mLocationManager = (LocationManager) requireContext().getSystemService(Context.LOCATION_SERVICE);
+        List<String> providers = mLocationManager.getProviders(true);
+        Location bestLocation = null;
+
+        for (String provider : providers) {
+            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // Handle permission request or return null/error condition as needed
+                return null; // Or handle the permission request scenario appropriately
+            }
+            Location l = mLocationManager.getLastKnownLocation(provider);
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                bestLocation = l;
+            }
+        }
+
+        return bestLocation;
+    }
+
 
     private void letsdoSomeNetworking(RequestParams params)
     {

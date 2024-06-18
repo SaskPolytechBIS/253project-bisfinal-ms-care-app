@@ -83,6 +83,10 @@ public class DialogShowNote extends DialogFragment {
         TextView txtTodo =
                 dialogView.findViewById(R.id.textViewTodo);
 
+        TextView viewDate = dialogView.findViewById(R.id.viewDate);
+
+        viewDate.setText(mNote.getDate());
+
         if (!mNote.isQuestions()){
             txtQuestions.setVisibility(View.GONE);
         }
@@ -144,6 +148,7 @@ public class DialogShowNote extends DialogFragment {
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        AppointmentNotesFragment parentFragment = (AppointmentNotesFragment) getParentFragment();
                         mNote.setTitle(editTitle.getText().toString());
                         mNote.setDescription(editDescription.getText().toString());
 
@@ -157,7 +162,7 @@ public class DialogShowNote extends DialogFragment {
 
                         // You can also save the updated note to your storage (e.g., database, file)
                         // Implement the actual save logic here
-
+                        parentFragment.update();
                         dismiss();
                     }
                 })

@@ -3,11 +3,13 @@ package com.example.mscarealpha.ui.notes;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -66,50 +68,8 @@ public class AppointmentNotesFragment extends Fragment {
 
         fabDel_Notes.setTranslationY(translationYaxis);
         fabAdd_Notes.setTranslationY(translationYaxis);
-        fabDel_Notes.setTranslationY(translationYaxis);
-        fabAdd_Notes.setTranslationY(translationYaxis);
-
-        fabAdd_Notes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogNewNote dialog = new DialogNewNote ();
-                dialog.show(getChildFragmentManager(), "");
-            }
-        });
-
-        fabDel_Notes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                noteList.clear();
-                mAdapter.notifyDataSetChanged();
-            }
-        });
-
-        mSerializer = new JSONSerializerForNotes("AppointmentNotes.json", requireContext());
-
-        try {
-            noteList = mSerializer.load();
-        } catch (Exception e) {
-            noteList = new ArrayList<AppointmentNotes>();
-            Log.e("Error loading notes: ", "", e);
-        }
-        recyclerView =
-                view.findViewById(R.id.recyclerView);
-
-        mAdapter = new NoteAdapter(this, noteList);
-
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireContext());
-
-        recyclerView.setLayoutManager(mLayoutManager);
-
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-
-// set the adapter
-
-        recyclerView.setAdapter(mAdapter);
-
-
+        viewDel.setTranslationY(translationYaxis);
+        viewAdd.setTranslationY(translationYaxis);
 
         fabOpenClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,9 +104,69 @@ public class AppointmentNotesFragment extends Fragment {
 //                viewReminders.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
             }
         });
+
+        fabAdd_Notes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogNewNote dialog = new DialogNewNote ();
+                dialog.show(getChildFragmentManager(), "");
+            }
+        });
+
+        fabDel_Notes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showClearAllConfirmationDialog();
+            }
+        });
+
+        mSerializer = new JSONSerializerForNotes("AppointmentNotes.json", requireContext());
+
+        try {
+            noteList = mSerializer.load();
+        } catch (Exception e) {
+            noteList = new ArrayList<AppointmentNotes>();
+            Log.e("Error loading notes: ", "", e);
+        }
+        recyclerView =
+                view.findViewById(R.id.recyclerView);
+
+        mAdapter = new NoteAdapter(this, noteList);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireContext());
+
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
+// set the adapter
+
+        recyclerView.setAdapter(mAdapter);
+
+
+
+
         return view;
 
 
+    }
+
+    private void showClearAllConfirmationDialog() {
+        new AlertDialog.Builder(getActivity())
+                .setMessage("Are you sure you want to delete all notes? This action cannot be undone.")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        noteList.clear();
+                        mAdapter.notifyDataSetChanged();
+                    }
+
+
+                })
+                .setNegativeButton("No", null)
+                .create()
+                .show();
     }
     public void createNewNote(AppointmentNotes an){
         // Temporary code
@@ -160,7 +180,9 @@ public class AppointmentNotesFragment extends Fragment {
         mPrefs = requireActivity().getSharedPreferences("Appointment Notes", MODE_PRIVATE);
     }
 
-
+    public void update(){
+        mAdapter.notifyDataSetChanged();
+    }
     public void showNote(int noteToShow){
         DialogShowNote dialog = new DialogShowNote();
         dialog.sendNoteSelected(noteList.get(noteToShow));
