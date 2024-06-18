@@ -31,6 +31,6 @@
     <fragment
         android:id="@+id/navigation_faqs"
         android:name="com.example.mscarealpha.ui.faqs.MSFAQsFragment"
-        android:label="More"
+        android:label="Additional Info"
         tools:layout="@layout/fragment_faqs" />
 </navigation>

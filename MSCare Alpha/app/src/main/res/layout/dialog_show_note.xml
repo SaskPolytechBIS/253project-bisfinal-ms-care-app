@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
+            android:fontFamily="@font/dm_sans"
             android:text="@string/questions_text"
             android:textAlignment="center"
             android:textColor="#FFFFFF" />
@@ -33,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
+            android:fontFamily="@font/dm_sans"
             android:text="@string/todo_text"
             android:textAlignment="center"
             android:textColor="#FFFFFF" />
@@ -51,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/dm_sans"
             android:text="TextView"
             android:textAlignment="center"
             android:textAllCaps="false"
