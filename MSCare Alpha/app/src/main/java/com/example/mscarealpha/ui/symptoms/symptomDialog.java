@@ -46,19 +46,19 @@ public class symptomDialog extends DialogFragment {
                 }
         });
 
-        builder.setNegativeButton("Home", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Called when the user clicks the negative button
-                // Add code to get back to the HomeFragment
-
-                // When onClick completed, Dialog closes automatically
-                // Navigate to the HomeFragment
-                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                navController.navigate(R.id.navigation_home);
-
-            }
-        });
+//        builder.setNegativeButton("Home", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                // Called when the user clicks the negative button
+//                // Add code to get back to the HomeFragment
+//
+//                // When onClick completed, Dialog closes automatically
+//                // Navigate to the HomeFragment
+//                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
+//                navController.navigate(R.id.navigation_home);
+//
+//            }
+//        });
 
         // return the created Dialog object
 
