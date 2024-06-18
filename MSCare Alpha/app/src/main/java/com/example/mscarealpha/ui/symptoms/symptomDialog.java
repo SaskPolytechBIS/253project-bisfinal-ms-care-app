@@ -46,7 +46,7 @@ public class symptomDialog extends DialogFragment {
                 }
         });
 
-        builder.setNegativeButton("HOME", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Home", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Called when the user clicks the negative button

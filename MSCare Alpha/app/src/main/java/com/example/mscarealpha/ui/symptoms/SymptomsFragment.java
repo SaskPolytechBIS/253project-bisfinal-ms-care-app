@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class SymptomsFragment2 extends Fragment{
+public class SymptomsFragment extends Fragment{
 
 
     Spinner bodyPartSpinner, symptomSpinner;
@@ -53,8 +53,8 @@ public class SymptomsFragment2 extends Fragment{
             "Back Head and Neck"
     };
 
-    public static SymptomsFragment2 newInstance() {
-        return new SymptomsFragment2();
+    public static SymptomsFragment newInstance() {
+        return new SymptomsFragment();
     }
 
     @SuppressLint("SuspiciousIndentation")
