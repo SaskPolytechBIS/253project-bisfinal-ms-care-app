@@ -1,5 +1,7 @@
 package com.example.mscarealpha.ui.home;
 
+import static android.content.Context.LOCATION_SERVICE;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -142,70 +144,32 @@ public class HomeFragment extends Fragment {
 
 
         TextView da = view.findViewById(R.id.textView7);
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        int lastSelectedIndex = sharedPreferences.getInt("lastSelectedIndex", -1);
-        String lastSelectedDate = sharedPreferences.getString("lastSelectedDate", "");
-        String line = ""; // Declare line outside the try-catch block
-
-// Get current date
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        String currentDate = sdf.format(new Date());
-
-// Check if it's a new day
-        if (!currentDate.equals(lastSelectedDate) || lastSelectedIndex == -1) {
-            InputStream is = getResources().openRawResource(R.raw.affirmations);
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(is, Charset.forName("UTF-8"))
-            );
-            List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
-            try {
-                reader.readLine(); // Skip header line
-                while ((line = reader.readLine()) != null) {
-                    String[] tokens = line.split(",");
-                    affirmationsList.add(tokens);
-                }
-                // Generate a random index
-                Random random = new Random();
-                int randomIndex = random.nextInt(affirmationsList.size());
-
-                // Get the affirmation at the random index
-                String[] randomAffirmation = affirmationsList.get(randomIndex);
-                String randomAffirmationText = randomAffirmation[1]; // Assuming affirmation text is at index 1
-
-                // Set the random affirmation text to the TextView
-                da.setText(randomAffirmationText);
-
-                // Save the selected index and date
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("lastSelectedIndex", randomIndex);
-                editor.putString("lastSelectedDate", currentDate);
-                editor.apply();
-            } catch (IOException e) {
-                Log.wtf("MyActivity", "Error reading data file on line " + line, e);
-                e.printStackTrace();
+        InputStream is = getResources().openRawResource(R.raw.affirmations);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line = "";
+        List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
+        try {
+            reader.readLine(); // Skip header line
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split(",");
+                affirmationsList.add(tokens);
             }
-        } else {
-            // If it's the same day, use the last selected index
-            List<String[]> affirmationsList = new ArrayList<>(); // Store all affirmations
-            try {
-                InputStream is = getResources().openRawResource(R.raw.affirmations);
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(is, Charset.forName("UTF-8"))
-                );
-                reader.readLine(); // Skip header line
-                while ((line = reader.readLine()) != null) {
-                    String[] tokens = line.split(",");
-                    affirmationsList.add(tokens);
-                }
-                String[] lastSelectedAffirmation = affirmationsList.get(lastSelectedIndex);
-                String lastSelectedAffirmationText = lastSelectedAffirmation[1]; // Assuming affirmation text is at index 1
-                da.setText(lastSelectedAffirmationText);
-            } catch (IOException e) {
-                Log.wtf("MyActivity", "Error reading data file on line " + line, e);
-                e.printStackTrace();
-            }
+            // Generate a random index
+            Random random = new Random();
+            int randomIndex = random.nextInt(affirmationsList.size());
+
+            // Get the affirmation at the random index
+            String[] randomAffirmation = affirmationsList.get(randomIndex);
+            String randomAffirmationText = randomAffirmation[1]; // Assuming affirmation text is at index 1
+
+            // Set the random affirmation text to the TextView
+            da.setText(randomAffirmationText);
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading data file on line " + line, e);
+            e.printStackTrace();
         }
-
 
 
         return view;
@@ -216,12 +180,11 @@ public class HomeFragment extends Fragment {
     private List<AffirmationsAdapter> affirmationsAdapter = new ArrayList<>();
 
 
-
     @Override
     public void onResume() {
         super.onResume();
-            getWeatherForCurrentLocation();
-
+        getWeatherForCurrentLocation();
+        getLastKnownLocation();
     }
 
 
@@ -230,24 +193,22 @@ public class HomeFragment extends Fragment {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
 
-        if(requestCode==REQUEST_CODE)
-        {
-            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-            {
+        if (requestCode == REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(requireContext(), "Location get Successfully", Toast.LENGTH_SHORT).show();
                 getWeatherForCurrentLocation();
-            }
-            else
-            {
+                getLastKnownLocation();
+            } else {
                 //user denied the permission
             }
         }
 
 
     }
+
     private void getWeatherForCurrentLocation() {
 
-        mLocationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
+        mLocationManager = (LocationManager) requireActivity().getSystemService(LOCATION_SERVICE);
         mLocationListner = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -255,13 +216,12 @@ public class HomeFragment extends Fragment {
                 String Latitude = String.valueOf(location.getLatitude());
                 String Longitude = String.valueOf(location.getLongitude());
 
-                RequestParams params =new RequestParams();
-                params.put("lat" ,Latitude);
-                params.put("lon",Longitude);
-                params.put("appid",APP_ID);
+                RequestParams params = new RequestParams();
+                params.put("lat", Latitude);
+                params.put("lon", Longitude);
+                params.put("appid", APP_ID);
                 letsdoSomeNetworking(params);
-
-
+                getLastKnownLocation();
 
 
             }
@@ -291,6 +251,31 @@ public class HomeFragment extends Fragment {
         mLocationManager.requestLocationUpdates(Location_Provider, MIN_TIME, MIN_DISTANCE, mLocationListner);
 
     }
+
+    private Location getLastKnownLocation() {
+        // Use requireContext() to get the Context of the fragment
+        mLocationManager = (LocationManager) requireContext().getSystemService(Context.LOCATION_SERVICE);
+        List<String> providers = mLocationManager.getProviders(true);
+        Location bestLocation = null;
+
+        for (String provider : providers) {
+            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // Handle permission request or return null/error condition as needed
+                return null; // Or handle the permission request scenario appropriately
+            }
+            Location l = mLocationManager.getLastKnownLocation(provider);
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                bestLocation = l;
+            }
+        }
+
+        return bestLocation;
+    }
+
 
     private void letsdoSomeNetworking(RequestParams params)
     {

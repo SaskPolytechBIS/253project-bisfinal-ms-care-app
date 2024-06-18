@@ -15,6 +15,8 @@ public class AppointmentNotes {
     private boolean mNotes;
     private boolean mTodo;
 
+    private String mDate;
+
 
 
     private static final String JSON_TITLE = "title";
@@ -23,6 +25,15 @@ public class AppointmentNotes {
     private static final String JSON_NOTES = "notes";
     private static final String JSON_TODO = "todo";
 
+    private static final String JSON_DATE = "date";
+
+    public String getDate() {
+        return mDate;
+    }
+
+    public void setDate(String mDate) {
+        this.mDate = mDate;
+    }
 
     public String getTitle() {
         return mTitle;
@@ -78,6 +89,7 @@ public class AppointmentNotes {
         mQuestions = jo.getBoolean(JSON_QUESTIONS);
         mNotes = jo.getBoolean(JSON_NOTES);
         mTodo = jo.getBoolean(JSON_TODO);
+        mDate = jo.getString(JSON_DATE);
 
     }
 
@@ -96,6 +108,7 @@ public class AppointmentNotes {
         jo.put(JSON_QUESTIONS, mQuestions);
         jo.put(JSON_NOTES, mNotes);
         jo.put(JSON_TODO, mTodo);
+        jo.put(JSON_DATE, mDate);
 
         return jo;
     }
