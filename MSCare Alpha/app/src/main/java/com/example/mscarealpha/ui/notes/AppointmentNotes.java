@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Objects;
 
 public class AppointmentNotes {
     private String mTitle;
@@ -18,12 +17,69 @@ public class AppointmentNotes {
     private String mDate;
 
 
+    private String mCreationDate; // New field for creation date
 
     private static final String JSON_TITLE = "title";
     private static final String JSON_DESCRIPTION = "description";
     private static final String JSON_QUESTIONS = "questions";
     private static final String JSON_NOTES = "notes";
     private static final String JSON_TODO = "todo";
+    private static final String JSON_CREATION_DATE = "creation_date"; // New JSON key for creation date
+
+    // Getter and Setter for mCreationDate
+    public String getCreationDate() {
+        return mCreationDate;
+    }
+
+    public void setCreationDate(String mCreationDate) {
+        this.mCreationDate = mCreationDate;
+    }
+
+    // Constructor for creating a new note
+    public AppointmentNotes(String title, String description, boolean questions, boolean notes, boolean todo) {
+        this.mTitle = title;
+        this.mDescription = description;
+        this.mQuestions = questions;
+        this.mNotes = notes;
+        this.mTodo = todo;
+        this.mCreationDate = getCurrentDate(); // Set the creation date to current date
+    }
+
+    // Constructor for creating a note from a JSONObject
+    public AppointmentNotes(JSONObject jo) throws JSONException {
+        mTitle = jo.getString(JSON_TITLE);
+        mDescription = jo.getString(JSON_DESCRIPTION);
+        mQuestions = jo.getBoolean(JSON_QUESTIONS);
+        mNotes = jo.getBoolean(JSON_NOTES);
+        mTodo = jo.getBoolean(JSON_TODO);
+        mCreationDate = jo.getString(JSON_CREATION_DATE); // Get creation date from JSON
+    }
+
+    // Default constructor
+    public AppointmentNotes() {
+    }
+
+    // Convert to JSON
+    public JSONObject convertToJSON() throws JSONException {
+        JSONObject jo = new JSONObject();
+
+        jo.put(JSON_TITLE, mTitle);
+        jo.put(JSON_DESCRIPTION, mDescription);
+        jo.put(JSON_QUESTIONS, mQuestions);
+        jo.put(JSON_NOTES, mNotes);
+        jo.put(JSON_TODO, mTodo);
+        jo.put(JSON_CREATION_DATE, mCreationDate); // Add creation date to JSON
+
+        return jo;
+    }
+
+    // Method to get the current date
+    public String getCurrentDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        return dateFormat.format(new Date());
+    }
+
+    // Getter and Setter methods for other fields
 
     private static final String JSON_DATE = "date";
 
@@ -112,5 +168,7 @@ public class AppointmentNotes {
 
         return jo;
     }
+
+}
 
 }
