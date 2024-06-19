@@ -9,25 +9,23 @@
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSave"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editMed"
@@ -65,7 +63,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="How many times?"
+        android:hint="Frequency"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnCancel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,8 +74,8 @@
 
     <EditText
         android:id="@+id/editFoods"
-        android:layout_width="283dp"
-        android:layout_height="153dp"
+        android:layout_width="280dp"
+        android:layout_height="159dp"
         android:layout_marginTop="216dp"
         android:ems="10"
         android:hint="Foods to avoid"
@@ -87,14 +85,14 @@
         app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editDrinks"
         android:layout_width="279dp"
         android:layout_height="122dp"
         android:ems="10"
-        android:hint="Drinks to avoid"
+        android:hint="Remind to Drink"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,15 +125,58 @@
         app:layout_constraintTop_toBottomOf="@+id/editDrinks"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/txtDate"
+    <!-- Repeat on days of the week checkboxes -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Date"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="390dp" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btn_set_reminder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal">
+
+        <CheckBox
+            android:id="@+id/check_monday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon" />
+
+        <CheckBox
+            android:id="@+id/check_tuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tue" />
+
+        <CheckBox
+            android:id="@+id/check_wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wed" />
+
+        <CheckBox
+            android:id="@+id/check_thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thu" />
+
+        <CheckBox
+            android:id="@+id/check_friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fri" />
+
+        <CheckBox
+            android:id="@+id/check_saturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sat" />
+
+        <CheckBox
+            android:id="@+id/check_sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sun" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
