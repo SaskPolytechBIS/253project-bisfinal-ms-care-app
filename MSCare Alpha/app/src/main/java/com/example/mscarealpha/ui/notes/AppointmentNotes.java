@@ -46,32 +46,13 @@ public class AppointmentNotes {
     }
 
     // Constructor for creating a note from a JSONObject
-    public AppointmentNotes(JSONObject jo) throws JSONException {
-        mTitle = jo.getString(JSON_TITLE);
-        mDescription = jo.getString(JSON_DESCRIPTION);
-        mQuestions = jo.getBoolean(JSON_QUESTIONS);
-        mNotes = jo.getBoolean(JSON_NOTES);
-        mTodo = jo.getBoolean(JSON_TODO);
-        mCreationDate = jo.getString(JSON_CREATION_DATE); // Get creation date from JSON
-    }
+
 
     // Default constructor
-    public AppointmentNotes() {
-    }
+
 
     // Convert to JSON
-    public JSONObject convertToJSON() throws JSONException {
-        JSONObject jo = new JSONObject();
 
-        jo.put(JSON_TITLE, mTitle);
-        jo.put(JSON_DESCRIPTION, mDescription);
-        jo.put(JSON_QUESTIONS, mQuestions);
-        jo.put(JSON_NOTES, mNotes);
-        jo.put(JSON_TODO, mTodo);
-        jo.put(JSON_CREATION_DATE, mCreationDate); // Add creation date to JSON
-
-        return jo;
-    }
 
     // Method to get the current date
     public String getCurrentDate() {
@@ -131,10 +112,6 @@ public class AppointmentNotes {
         this.mTodo = mTodo;
     }
 
-    public String getCurrentDate() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        return dateFormat.format(new Date());
-    }
 
     // Constructor
     // Only used when new is called with a JSONObject
@@ -168,7 +145,5 @@ public class AppointmentNotes {
 
         return jo;
     }
-
-}
 
 }
