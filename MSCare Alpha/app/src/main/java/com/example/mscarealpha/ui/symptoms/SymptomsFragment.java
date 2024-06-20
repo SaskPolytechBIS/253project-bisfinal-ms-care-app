@@ -83,7 +83,7 @@ public class SymptomsFragment extends Fragment{
         symptomSpinner = root.findViewById(R.id.symptom_dropdown);
         SeekBar pain_range_bar = root.findViewById(R.id.pain_range_bar);
         TextView notes_and_comments = root.findViewById(R.id.notes_and_comments_textbox);
-
+        TextView seekbarValue = root.findViewById(R.id.seekbar_value);
         bodyPartImageMap = new HashMap<>();
 
         bodyPartImageMap.put("Head and Cognitive", R.drawable.head_img);
@@ -203,6 +203,23 @@ public class SymptomsFragment extends Fragment{
 
                 // show the dialog using this Activity's Fragment Manager
                 myDialog.show(getActivity().getSupportFragmentManager(), "123");
+            }
+        });
+
+        pain_range_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekbarValue.setText(String.format("%d", progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // (Code if default value is to be displayed when the fragment is being interacted on touch )
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // (Optional)
             }
         });
 
