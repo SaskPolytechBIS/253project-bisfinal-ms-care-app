@@ -59,8 +59,14 @@ public Dialog onCreateDialog(Bundle savedInstance){
         String list = ""; // Prepare a string to hold the formatted results
 
         // Loop through the symptom list (not the Cursor)
+        /* Old Formatting:
         for (Symptom symptom : symptomList) {
             list += ("Body Part Associated : " + symptom.getBodyPart() + " \nSymptom Type: " + symptom.getSymptomName() + " \nPain: " + symptom.getPainLevel() + "\n"); // Formatting the symptom data
+        }*/
+
+        for (Symptom symptom : symptomList) {
+            list += String.format("%s - %s (Pain: %d) - %s\n",
+                    symptom.getBodyPart(), symptom.getSymptomName(), symptom.getPainLevel(), symptom.getTimestamp());
         }
 
         textResults.setText(list); // Display the formatted data in the TextView

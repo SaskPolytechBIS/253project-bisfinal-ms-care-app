@@ -7,10 +7,10 @@ public class Symptom {
     public String symptomName;
     public int painLevel;
     public String notes;
-    public long timestamp; // Added to store the time of logging
+    public String timestamp; // Added to store the time of logging
 
     // Constructor
-    public Symptom(String bodyPart, String symptomName, int painLevel, String notes, long timestamp) {
+    public Symptom(String bodyPart, String symptomName, int painLevel, String notes, String timestamp) {
         this.bodyPart = bodyPart;
         this.symptomName = symptomName;
         this.painLevel = painLevel;
@@ -40,7 +40,7 @@ public class Symptom {
         return notes;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
@@ -65,7 +65,7 @@ public class Symptom {
         this.notes = notes;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 }

@@ -75,7 +75,8 @@ public class SymptomDbHelper {
                     + TABLE_ROW_SYMPTOM_NAME + " TEXT NOT NULL, "
                     + TABLE_ROW_PAIN_LEVEL + " INTEGER NOT NULL, "
                     + TABLE_ROW_NOTES + " TEXT, "
-                    + TABLE_ROW_TIMESTAMP + " INTEGER NOT NULL);";
+                    + TABLE_ROW_TIMESTAMP + " TEXT NOT NULL);";
+
 
             db.execSQL(newTableQueryString);
         }
@@ -107,9 +108,9 @@ public class SymptomDbHelper {
                 "'" + symptom.getBodyPart() + "', " +
                 "'" + symptom.getSymptomName() + "', " +
                 symptom.getPainLevel() + ", " +
-                "'" + symptom.getNotes() + "', " +
+                "'" + symptom.getNotes() + "', '" +
                 symptom.getTimestamp() +
-                ");";
+                "');";
 
         Log.i("insert() = ", query);
 
@@ -133,8 +134,8 @@ public class SymptomDbHelper {
                 TABLE_ROW_SYMPTOM_NAME + " = '" + symptom.getSymptomName() + "', " +
                 TABLE_ROW_PAIN_LEVEL + " = " + symptom.getPainLevel() + ", " +
                 TABLE_ROW_NOTES + " = '" + symptom.getNotes() + "', " +
-                TABLE_ROW_TIMESTAMP + " = " + symptom.getTimestamp() +
-                " WHERE " + TABLE_ROW_ID + " = " + symptom.getId();
+                TABLE_ROW_TIMESTAMP + " = '" + symptom.getTimestamp() +
+                "' WHERE " + TABLE_ROW_ID + " = " + symptom.getId();
 
         Log.i("update() = ", query);
         db.execSQL(query);
@@ -153,7 +154,7 @@ public class SymptomDbHelper {
             String symptomName = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_ROW_SYMPTOM_NAME));
             int painLevel = cursor.getInt(cursor.getColumnIndexOrThrow(TABLE_ROW_PAIN_LEVEL));
             String notes = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_ROW_NOTES));
-            long timestamp = cursor.getLong(cursor.getColumnIndexOrThrow(TABLE_ROW_TIMESTAMP));
+            String timestamp = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_ROW_TIMESTAMP));
 
             Symptom symptom = new Symptom(bodyPart, symptomName, painLevel, notes, timestamp);
             symptom.setId(id); // Use the setter method

@@ -24,10 +24,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mscarealpha.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class SymptomsFragment extends Fragment{
 
@@ -177,8 +180,10 @@ public class SymptomsFragment extends Fragment{
                 //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                 //String timestamp = dateFormat.format(new Date());
                 // 4. Alternative: Get Timestamp
-                long timestamp = System.currentTimeMillis();
+                //long timestamp = System.currentTimeMillis();
 
+                String timestamp = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                System.out.println("Log entry at: " + timestamp);
                 // Create a new Symptom object
                 Symptom newSymptom = new Symptom(selectedBodyPart, selectedSymptom, painLevel, notes, timestamp);
 
