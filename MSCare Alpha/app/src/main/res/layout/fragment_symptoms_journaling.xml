@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="8dp"
-            android:text="Extremely Painful"
+            android:text="Extreme"
             app:layout_constraintBottom_toTopOf="@id/pain_range_bar"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
-            android:text="Bearable"
+            android:text="Low"
             app:layout_constraintBottom_toTopOf="@+id/pain_range_bar"
             app:layout_constraintStart_toStartOf="parent" />
 
