@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MSCare Alpha"
+rootProject.name = "MS Care RC"
 include(":app")

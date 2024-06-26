@@ -1,12 +1,13 @@
 package com.example.mscarealpha.ui.symptoms;
 
 public class Symptom {
-    public String getSymptomName;
-    private String bodyPart;
-    private String symptomName;
-    private int painLevel;
-    private String notes;
-    private long timestamp; // Added to store the time of logging
+
+    public int id;
+    public String bodyPart;
+    public String symptomName;
+    public int painLevel;
+    public String notes;
+    public long timestamp; // Added to store the time of logging
 
     // Constructor
     public Symptom(String bodyPart, String symptomName, int painLevel, String notes, long timestamp) {
@@ -18,6 +19,11 @@ public class Symptom {
     }
 
     // Getters
+
+    public int getId() {
+        return id;
+    }
+
     public String getBodyPart() {
         return bodyPart;
     }
@@ -38,6 +44,10 @@ public class Symptom {
         return timestamp;
     }
 
+    // Adding a setter for the id
+    public void setId(int id) {
+        this.id = id;
+    }
     // Setters
     public void setBodyPart(String bodyPart) {
         this.bodyPart = bodyPart;

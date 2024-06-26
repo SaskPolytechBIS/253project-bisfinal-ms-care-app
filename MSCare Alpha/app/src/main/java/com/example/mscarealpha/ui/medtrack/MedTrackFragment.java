@@ -73,18 +73,14 @@ public class MedTrackFragment extends Fragment{
 
         fabDel.setAlpha(0f);
         fabAdd.setAlpha(0f);
-//        fabReminders.setAlpha(0f);
         viewDel.setAlpha(0f);
         viewAdd.setAlpha(0f);
-//        viewReminders.setAlpha(0f);
 
 
         fabDel.setTranslationY(translationYaxis);
         fabAdd.setTranslationY(translationYaxis);
-//        fabReminders.setTranslationY(translationYaxis);
         viewDel.setTranslationY(translationYaxis);
         viewAdd.setTranslationY(translationYaxis);
-//        viewReminders.setTranslationY(translationYaxis);
 
 
         fabOpenClose.setOnClickListener(new View.OnClickListener() {

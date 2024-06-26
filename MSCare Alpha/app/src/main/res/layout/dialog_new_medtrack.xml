@@ -65,7 +65,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="Frequency"
+        android:hint="How many times?"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnCancel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
         android:layout_width="279dp"
         android:layout_height="122dp"
         android:ems="10"
-        android:hint="Remind to Drink"
+        android:hint="Drinks to avoid"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,5 +126,16 @@
         app:layout_constraintStart_toEndOf="@id/editTextReminderMessage"
         app:layout_constraintTop_toBottomOf="@+id/editDrinks"
         app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Date"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="390dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

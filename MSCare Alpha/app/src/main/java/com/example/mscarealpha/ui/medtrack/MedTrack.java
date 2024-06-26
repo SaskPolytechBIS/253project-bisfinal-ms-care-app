@@ -10,6 +10,8 @@ public class MedTrack {
     private String mFoods;
     private String mDrinks;
 
+    private String mDate2;
+
     private static final String JSON_MED = "title";
 
     private static final String JSON_DOSAGE = "dosage";
@@ -19,6 +21,16 @@ public class MedTrack {
     private static final String JSON_FOODS = "foods";
 
     private static final String JSON_DRINKS = "drinks";
+
+    private static final String JSON_DATE = "date";
+
+    public String getDate2() {
+        return mDate2;
+    }
+
+    public void setDate2(String mDate2) {
+        this.mDate2 = mDate2;
+    }
 
     public String getMed(){ return mMed; }
 
@@ -46,6 +58,7 @@ public class MedTrack {
         mTimes = jo.getString(JSON_TIMES);
         mFoods = jo.getString(JSON_FOODS);
         mDrinks = jo.getString(JSON_DRINKS);
+        mDate2 = jo.getString(JSON_DATE);
     }
 
     public MedTrack(){
@@ -60,6 +73,7 @@ public class MedTrack {
         jo.put(JSON_TIMES, mTimes);
         jo.put(JSON_FOODS, mFoods);
         jo.put(JSON_DRINKS, mDrinks);
+        jo.put(JSON_DATE, mDate2);
 
 
         return jo;
